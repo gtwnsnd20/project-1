@@ -1,0 +1,33 @@
+:root{
+  --pink: #f3a4b5;
+  --bs-blue: #1F3A63;
+  --bs-indigo: #53ACF8;
+  --bs-purple: #723182;
+  --bs-pink: #f6458e;
+  --bs-red: #F55767;
+  --bs-orange: #f6d845;
+  --bs-yellow: #FDC800;
+  --bs-green: #40975F;
+  --bs-teal: #299EF3;
+  --bs-cyan: #3EB8F4;
+  --bs-white: #fff;
+  --bs-gray: #C3BCC4;
+  --bs-gray-dark: #B0A7B2;
+  --bs-primary: #723182;
+  --bs-secondary: #A79CA8;
+  --bs-success: #40975F;
+  --bs-info: #3EB8F4;
+  --bs-warning: #FDC800;
+  --bs-danger: #F55767;
+  --bs-light: #F9FAFD;
+  --bs-dark: #44224B;
+  --rose:#e91e63;
+  --barney:#9c27b0;
+  --teal:#00bcd4;
+}
+
+
+/* FOOTER */
+footer {
+  background-color: rgb(56, 56, 56);
+}
