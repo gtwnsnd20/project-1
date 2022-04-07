@@ -1,5 +1,5 @@
 const express = require('express');
-const pool = require('./api/database');
+const pool = require('../api/database');
 
 const router = express.Router();
 
