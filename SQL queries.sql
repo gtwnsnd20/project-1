@@ -1,5 +1,5 @@
 CREATE TABLE role (role_id serial PRIMARY KEY, role_name VARCHAR(15));
-CREATE TABLE users (user_id serial PRIMARY KEY, username varchar(25),role_id int,hashed_password varchar(30), email varchar(30),register_date TIMESTAMP DEFAULT CURRENT_DATE,last_login TIMESTAMP DEFAULT CURRENT_DATE, CONSTRAINT fk_role_ID FOREIGN KEY(role_id) REFERENCES role(role_id));
+CREATE TABLE users (user_id serial PRIMARY KEY, username varchar(25),role_id int,password varchar(30), email varchar(30),register_date TIMESTAMP DEFAULT CURRENT_DATE,last_login TIMESTAMP DEFAULT CURRENT_DATE, CONSTRAINT fk_role_ID FOREIGN KEY(role_id) REFERENCES role(role_id));
 CREATE TABLE category (cat_id serial PRIMARY KEY, name VARCHAR(120));
 CREATE TABLE thread (thread_id serial PRIMARY KEY, cat_id INT REFERENCES category (cat_id),subject VARCHAR(120), user_id INT,create_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP, CONSTRAINT fk_user_id FOREIGN KEY(user_id) REFERENCES users(user_id) ON DELETE SET NULL);
 CREATE TABLE post (post_id serial PRIMARY KEY, thread_id INT REFERENCES thread (thread_id) ON DELETE CASCADE, user_id INT REFERENCES users (user_id) ON DELETE SET NULL, content VARCHAR(5000) NOT NULL, post_date TIMESTAMP DEFAULT CURRENT_TIMESTAMP);
