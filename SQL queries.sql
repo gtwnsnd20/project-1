@@ -36,6 +36,9 @@ INSERT INTO post VALUES (DEFAULT,1,1,'You can say that after you see Kanata no A
 
 SELECT content,post_date,user_id FROM post WHERE thread_id = (select thread_id FROM thread WHERE subject = 'Best Anime');
 
+--drop tables
 DROP TABLE users CASCADE;
 DROP TABLE thread CASCADE;
 DROP TABLE post CASCADE;
+DROP TABLE role;
+DROP TABLE category CASCADE;
