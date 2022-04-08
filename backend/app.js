@@ -27,11 +27,13 @@ const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const categoryRouter = require('./routes/category');
 const threadRouter = require('./routes/thread');
+const postRouter = require('./routes/post');
 
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/category', categoryRouter);
-app.use('/thread', threadRouter)
+app.use('/thread', threadRouter);
+app.use('/post', postRouter);
 
 // listener
 app.listen(port, () => {
