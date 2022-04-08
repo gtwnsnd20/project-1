@@ -1,44 +1,100 @@
 /* Import Font Dancing Script */
-@import url(https://fonts.googleapis.com/css?family=Dancing+Script);
+
+@import url('https://fonts.googleapis.com/css2?family=Grandstander:wght@200&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Pacifico');
+@import url('https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope');
+@import url('https://fonts.googleapis.com/css?family=Just+Another+Hand');
+
 
 :root{
-  --pink: #f3a4b5;
-  --bs-blue: #1F3A63;
-  --bs-indigo: #53ACF8;
-  --bs-purple: #723182;
-  --bs-pink: #f6458e;
-  --bs-red: #F55767;
-  --bs-orange: #f6d845;
-  --bs-yellow: #FDC800;
-  --bs-green: #40975F;
-  --bs-teal: #299EF3;
-  --bs-cyan: #3EB8F4;
-  --bs-white: #fff;
-  --bs-gray: #C3BCC4;
-  --bs-gray-dark: #B0A7B2;
-  --bs-primary: #723182;
-  --bs-secondary: #A79CA8;
-  --bs-success: #40975F;
-  --bs-info: #3EB8F4;
-  --bs-warning: #FDC800;
-  --bs-danger: #F55767;
-  --bs-light: #F9FAFD;
-  --bs-dark: #44224B;
-  --rose:#e91e63;
-  --barney:#9c27b0;
-  --teal:#00bcd4;
+  --red: #d90429;
+  --darkred: #ba181b;
+  --burgandy: #9B2226;
+  --burgandy2: #660708;
+  --hotpink:#e91e63;
+  --pink: #da627d;
+  --bs-danger: #e56b6f;
+  --blush: #f3a4b5;
+  --medpink: #c1666b;
+  --peach: #dd9787;
+  --orange: #f85e00;
+  --burntorange: #bc3908;
+  --copper: #BC6C25;
+  --yellow2: #e59500;
+  --neonyellow: #FDC800;
+  --yellow: #f5cb5c;
+  --cream: #eae0d5;
+  --beige: #d6cfcb;
+  --brown: #5e503f;
+  --greenbeige: #b7b7a4;
+  --mint: #d8e2dc;
+  --lightolive: #a5a58d;
+  --green2: #a7c957;
+  --green: #adc178;
+  --neongreen: #a5be00;
+  --grass: #6a994e;
+  --darkgreen: #386641;
+  --olive: #606C38;
+  --darkgreen: #283618;
+  --teal: #335c67;
+  --darkblue: #284b63;
+  --turquoise:#00bcd4;
+  --blue: #669bbc;
+  --skyblue: #98c1d9;
+  --navy: #3d5a80;
+  --cornblue: #a1b5d8;
+  --bluegrey: #738290;
+  --lilac: #8d99ae;
+  --indigo: #4a4e69;
+  --indigo2: #3d405b;
+  --darkpurple: #2b2d42;
+  --fuschia: #5f0f40;
+  --purple: #6a4c93;
+  --purple2: #6d597a;
+  --prune: #6d6875;
+  --greyilac: #9a8c98;
+  --grey: #C3BCC4;
+  --lightgrey: #d9d9d9;
+  --darkgrey: #333533;
+  --dark: #1e2d2f;
+  --basicfont: 'Grandstander', cursive;
+  --retrofont: 'Pacifico', cursive;
+  --anniefont: 'Annie Use Your Telescope', cursive;
+  --handwrittingfont: 'Just Another Hand', cursive;
 }
 
 
 /* FOOTER */
 footer {
-  background-color: rgb(56, 56, 56);
+  background-color: var(--brown);
+  font-family: var(--basicfont);
+  letter-spacing: 2px;
 }
 
-.brandname {
-  color: var(--bs-blue);
-  font-family: 'Dancing Script', cursive;
-  position:absolute;
-  left:5%
+.navbar {
+  background-color: transparent !important;
+  display: flex;
+  /* padding: 1rem 1rem; */
+  flex-wrap: wrap;
+  justify-content: space-between !important;
+  box-shadow: none;
+}
+
+.navbar .navbar-brand {
+  position: relative;
+  color: var(--brown);
+  line-height: 30px;
+}
+
+.navbar .navbar-brand img{
+  width: 30px;
+}
+
+.navbar-brand span{
+  letter-spacing: 2px;
+  font-family: var(--retrofont);
+  font-weight: bold;
+  font-style: oblique;
+  font-size: xx-large;
 }
 
