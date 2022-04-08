@@ -26,10 +26,12 @@ app.use(sessions({
 const loginRouter = require('./routes/login');
 const registerRouter = require('./routes/register');
 const categoryRouter = require('./routes/category');
+const threadRouter = require('./routes/thread');
 
 app.use('/login', loginRouter);
 app.use('/register', registerRouter);
 app.use('/category', categoryRouter);
+app.use('/thread', threadRouter)
 
 // listener
 app.listen(port, () => {
