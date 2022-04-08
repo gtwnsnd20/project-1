@@ -10,10 +10,15 @@ router.post('/', (req,res) => {
   let password = userObj.password;
   console.log(username);
   pool.query('SELECT username,password FROM users WHERE username=$1',[username],(error,results)=>{//Query server for user
-      if(error){//If uname not found, return error
+      if(error){
           console.log(`Login Query error: ${error}`);
           res.status(403).json(error);
-      } else {
+      }
+
+      if (results.rowCount == 0){ //If username not found, return error
+          res.status(400).json();
+      }
+      else {
           let data = results.rows[0];
           console.log(data);
           console.log("password:" + password);
