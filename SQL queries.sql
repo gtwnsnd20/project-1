@@ -25,6 +25,11 @@ INSERT INTO thread VALUES (DEFAULT,1,'Best Anime',1,DEFAULT);
 INSERT INTO thread VALUES (DEFAULT,2,'React technology',4,DEFAULT);
 INSERT INTO thread VALUES (DEFAULT,3,'Playing as Japan psychology',3,DEFAULT);
 INSERT INTO thread VALUES (DEFAULT,4,'Morning art',2,DEFAULT);
+INSERT INTO thread VALUES (DEFAULT,1,'Jujutsu Kaisen Reviews',1,DEFAULT);
+INSERT INTO thread VALUES (DEFAULT,2,'Having Fun Learning JAVA!!',4,DEFAULT);
+INSERT INTO thread VALUES (DEFAULT,3,'The facts about Depression',3,DEFAULT);
+INSERT INTO thread VALUES (DEFAULT,4,'Facts about Pablo Picasso',2,DEFAULT);
+
 
 --make post
 INSERT INTO post VALUES (DEFAULT,1,1,'Anime is the pinnacle of entertaiment, The best of the best being Kanata no Astra: Lost in Space. CHANGE MY MIND',DEFAULT);
