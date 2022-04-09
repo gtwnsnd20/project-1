@@ -2,7 +2,7 @@ import React from "react";
 import { Card, Tab, Tabs, } from 'react-bootstrap';
 import { ThreeDots } from "react-bootstrap-icons";
 
-const ForumTabs = () => {
+const ForumTabsDemo = () => {
   return (
     <div className="tabcontainer">
       <Tabs variant="tabs" defaultActiveKey="category" id="forumtabs-demo" className="mb-3">
@@ -96,4 +96,4 @@ const ForumTabs = () => {
     </div>
   );
 }
-export default ForumTabs;
+export default ForumTabsDemo;
