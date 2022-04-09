@@ -98,3 +98,28 @@ footer {
   font-size: xx-large;
 }
 
+.tabsgroup{
+  letter-spacing: 2px;
+  font-family: var(--basicfont);
+  font-weight: 500;
+  font-style: oblique;
+  font-size: x-large;
+  color: transparent !important;
+  background-color: transparent !important;
+  outline: 0;
+}
+
+.tabcontainer{
+  padding: 60px 170px;
+  font-size: 25px;
+  background-color: transparent;
+}
+
+.cardheader{
+  font-family: var(--basicfont);
+  font-size: 20px;
+  outline: white;
+  padding: 10px 60px;
+  border: white;
+}
+
