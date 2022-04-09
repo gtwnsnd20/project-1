@@ -1,6 +1,9 @@
 const express = require('express');
 const pool = require('../api/database');
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+const dotenv = require('dotenv');
+dotenv.config();
 
 const router = express.Router();
 
@@ -24,7 +27,8 @@ router.post('/', (req,res) => {
           console.log(data);
           if(bcrypt.compare(password,data.password)){//Check password to hash stored in db.
               console.log("Password is correct")
-              res.status(200).json();
+              const token = jwt.sign({username:username},process.env.TOKEN_SECRET,{expiresIn: '24h'});//Create Token
+              res.status(200).json(token);
           }   else {//Send status for password incorrect
               console.log("Password is incorrect")
               res.status(403).json();//send password incorrect
