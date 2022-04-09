@@ -3,6 +3,7 @@ const pool = require('../api/database');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
+const cookieParser = require("cookie-parser");
 dotenv.config();
 
 const router = express.Router();
@@ -31,7 +32,11 @@ router.post('/', (req,res) => {
               res.status(200).json(token);
           }   else {//Send status for password incorrect
               console.log("Password is incorrect")
-              res.status(403).json();//send password incorrect
+              res.cookie("access_token", token,{
+                httpOnly: true,
+                secure: process.env.NODE_ENV !== "development",
+                maxAge: 24 * 60 * 60 * 1000 // 2status(403).json().4 hours
+            });//send password incorrect
           }
       }
   })
