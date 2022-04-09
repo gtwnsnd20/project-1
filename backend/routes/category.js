@@ -5,8 +5,7 @@ const router = express.Router();
 
 router.get('/',(req,res)=>{
     pool.query('SELECT name FROM category',(error,results)=>{
-        if(error){//throw error if categories not found
-            throw error;
+        if(error){
             res.status(403).json(error);
         } else {
             res.status(200).json(results.rows);
