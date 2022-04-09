@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function branding() {
+function Header() {
   return (
     <div className="brand">
       <div className="logo">
@@ -10,3 +10,5 @@ export default function branding() {
     </div>
   );
 }
+
+export default Header;
