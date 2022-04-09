@@ -4,7 +4,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const sessions = require('express-session');
-const checkToken = require('./routes/auth');
+const checkToken = require('./middleware/auth');
 
 //app
 const app = express();
@@ -37,8 +37,8 @@ app.use('/register', registerRoute);
 app.use('/get-categories', getCategoriesRoute);
 app.use('/get-threads', getThreadsRoute);
 app.use('/get-posts', getPostsRoute);
-app.use('/add-thread', addThreadRoute);
-app.use('/add-post', addPostRoute);
+app.use('/add-thread', checkToken, addThreadRoute);
+app.use('/add-post', checkToken, addPostRoute);
 
 
 // listener

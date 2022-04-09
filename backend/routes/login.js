@@ -15,7 +15,7 @@ router.post('/', (req,res) => {
   let username = userObj.username;
   let password = userObj.password;
   console.log(username);
-  pool.query('SELECT username,password FROM users WHERE username=$1',[username],(error,results)=>{//Query server for user
+  pool.query('SELECT username,password,user_id FROM users WHERE username=$1',[username],(error,results)=>{//Query server for user
       if(error){
           console.log(`Login Query error: ${error}`);
           res.status(403).json(error);
@@ -28,7 +28,7 @@ router.post('/', (req,res) => {
           console.log(data);
           if(data.password == password){//Check password to passsword stored in db.
               console.log("Password is correct")
-              const token = jwt.sign({username:username},process.env.TOKEN_SECRET,{expiresIn: '24h'});//Create Token
+              const token = jwt.sign({user:data.username,userid:data.user_id },process.env.TOKEN_SECRET,{expiresIn: '24h'});//Create Token
               res.status(200).cookie("access_token", token,{
                 httpOnly: true,
                 secure: process.env.NODE_ENV !== "development",
