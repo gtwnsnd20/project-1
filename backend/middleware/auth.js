@@ -10,6 +10,12 @@ function checkToken (req,res, next){
             res.sendStatus(403).json(error);
 
         } else if(data.user){
+            let lifeSpan = config.life_span;
+            const now = new Date()
+            let lifeLeft = data.exp - now.getTime();
+            if(lifeLeft < (lifeSpan*0.75)){//Check if if token will expire in less then 3/4 of it's original time
+                //Command to renew cookie.
+            }
             console.log("JWT:"+JSON.stringify(data));
             return next();
         }
