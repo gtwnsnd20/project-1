@@ -1,5 +1,6 @@
 const express = require('express');
 const pool = require('../api/database');
+const bcrypt = require('bcryptjs');
 
 const router = express.Router();
 
@@ -21,8 +22,7 @@ router.post('/', (req,res) => {
       else {
           let data = results.rows[0];
           console.log(data);
-          console.log("password:" + password);
-          if(password == data.password){//If password is correct
+          if(bcrypt.compare(password,data.password)){//Check password to hash stored in db.
               console.log("Password is correct")
               res.status(200).json();
           }   else {//Send status for password incorrect
