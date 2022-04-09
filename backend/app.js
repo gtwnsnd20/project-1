@@ -4,6 +4,7 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const sessions = require('express-session');
+const checkToken = require('./routes/auth');
 
 //app
 const app = express();
