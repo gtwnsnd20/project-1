@@ -23,17 +23,22 @@ app.use(sessions({
 }));
 
 // routes
-const loginRouter = require('./routes/login');
-const registerRouter = require('./routes/register');
-const categoryRouter = require('./routes/category');
-const threadRouter = require('./routes/thread');
-const postRouter = require('./routes/post');
+const loginRoute = require('./routes/login');
+const registerRoute = require('./routes/register');
+const getCategoriesRoute = require('./routes/get_categories');
+const getThreadsRoute = require('./routes/get_threads');
+const getPostsRoute = require('./routes/get_posts');
+const addThreadRoute = require('./routes/add_thread');
+const addPostRoute = require('./routes/add_post');
 
-app.use('/login', loginRouter);
-app.use('/register', registerRouter);
-app.use('/category', categoryRouter);
-app.use('/thread', threadRouter);
-app.use('/post', postRouter);
+app.use('/login', loginRoute);
+app.use('/register', registerRoute);
+app.use('/get-categories', getCategoriesRoute);
+app.use('/get-threads', getThreadsRoute);
+app.use('/get-posts', getPostsRoute);
+app.use('/add-thread', addThreadRoute);
+app.use('/add-post', addPostRoute);
+
 
 // listener
 app.listen(port, () => {
