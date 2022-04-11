@@ -18,7 +18,7 @@ router.post('/', (req,res) => {
       res.status(409).send('Username already taken');
     } else { // Else insert new user
       //hashPassword = bcrypt.hashSync(password,10);
-      console.log(hashPassword);
+      //console.log(hashPassword);
       pool.query('INSERT INTO users VALUES(DEFAULT,$1,$2,$3)', [username,password,email], (error2,results2) => { // Query to insert new user
         if(error2){
           console.log(`Registration Query error: ${error2}`);
