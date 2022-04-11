@@ -5,7 +5,7 @@ import logo from "./Assets/Images/chicken.png";
 import MyAvatar from "./Assets/Avatar";
 
 function Navbar() {
-  //add useStates and checking session for active user login/data
+  //add useStates and checking session for active user login/data and isAdmin
 
   //navbar when a user is logged in
   const renderLoggedInNav = (

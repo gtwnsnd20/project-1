@@ -127,3 +127,15 @@ footer {
   border: white;
 }
 
+.threadForm{
+  font-family: var(--basicfont);
+  padding: 60px 170px;
+  font-size: x-large;
+  letter-spacing: 2px;
+}
+
+.newformtitle{
+  font-family: var(--basicfont);
+  font-size: xx-large;
+  text-align: center;
+}
