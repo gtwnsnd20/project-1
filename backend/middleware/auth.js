@@ -1,9 +1,8 @@
 config = process.env;
 const jwt = require('jsonwebtoken');
-
 function checkToken (req,res, next){
-    const authcookie = req.cookies.access_token//Get cookie from request
-    console.log(authcookie)
+    console.log("The unencrypted portion of the Cookie says the user is:"+ req.cookies.access_token[1])
+    const authcookie = req.cookies.access_token[0]//Get cookie from request
     jwt.verify(authcookie,config.TOKEN_SECRET,(error,data)=>{//Verify and decrypt the jwt token held within the cookie
         if(error){
             console.log("Error processing Cookie"+ error);
