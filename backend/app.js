@@ -1,6 +1,6 @@
 // import modules
 const express = require('express');
-const checkToken = require('./middleware/auth');
+const {isAdmin,isUser} = require('./middleware/auth');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
@@ -43,14 +43,14 @@ app.use('/get-threads', getThreadsRoute);
 app.use('/get-posts', getPostsRoute);
 
 //Routes that require being Logged in
-app.use('/add-thread', checkToken, addThreadRoute);
-app.use('/add-post', checkToken, addPostRoute);
+app.use('/add-thread', isUser, addThreadRoute);
+app.use('/add-post', isUser, addPostRoute);
 
 //Routes that require admin Priveleges
-app.use('/delete-post',deletePostRoute);
-app.use('/delete-thread',deleteThreadRoute);
-app.use('/delete-user',deleteUserRoute);
-app.use('/add-category',addCategoryRoute);
+app.use('/delete-post', isAdmin, deletePostRoute);
+app.use('/delete-thread', isAdmin, deleteThreadRoute);
+app.use('/delete-user', isAdmin, deleteUserRoute);
+app.use('/add-category', isAdmin, addCategoryRoute);
 
 
 // listener
