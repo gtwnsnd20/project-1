@@ -72,8 +72,12 @@ footer {
   position: absolute;
   bottom: 0;
   width: 100%;
-  height: 60px;
+  height: auto;
 }
+
+.sitefooter img{
+  width: 30px;
+} 
 
 .navbar {
   background-color: transparent !important;
@@ -127,15 +131,35 @@ footer {
   border: white;
 }
 
-.threadForm{
-  font-family: var(--basicfont);
-  padding: 60px 170px;
-  font-size: x-large;
-  letter-spacing: 2px;
+.createthread{
+  padding-top: 40px;
+  padding-bottom: 40px;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .newformtitle{
   font-family: var(--basicfont);
-  font-size: xx-large;
+  font-size: 30px;
   text-align: center;
+  margin-bottom: 20px;
 }
+
+.form-newthread{
+  width: 100%;
+  max-width: 930px;
+  padding: 15px;
+  margin: auto;
+  position: inherit;
+}
+
+.threadForm{
+  font-family: var(--basicfont);
+  padding: 60px 170px;
+  justify-content: center;
+  font-size: 20px;
+  letter-spacing: 2px;
+}
+
+
+

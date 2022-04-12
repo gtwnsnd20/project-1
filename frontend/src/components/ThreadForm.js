@@ -8,7 +8,7 @@ function ThreadForm() {
   const [isSubmitted, setIsSubmitted] = useState();
   const [isAdminUser, setIsAdminUser] = useState();
 
-  //function to handle submit event
+  //function to handle submit event --incomplete for now
   const handleSubmit = (event) => {
     //prevent page reload
     event.preventDefault();
@@ -23,16 +23,17 @@ function ThreadForm() {
   //code for new thread form with inputs for the title and description
   const renderThreadForm = (
     <div className="threadForm">
-      <Form onSubmit={handleSubmit} id="newThread">
+      <Form onSubmit={handleSubmit} id="newThread" className="form-newthread text-center">
         <Form.Group className="mb-3" controlId="formTitle">
           <Form.Label>Thread Title:</Form.Label>
           <Form.Control type="text" id="threadTitle" placeholder="Enter title"/>
         </Form.Group>
+        <br></br>
         <Form.Group className="mb-3" controlId="formDescribe">
           <Form.Label>Description:</Form.Label>
-          <Form.Control as="textarea" id="threadDescription" placeholder="Enter brief description" />
+          <Form.Control as="textarea" id="threadDescription" style={{height:'100px'}} placeholder="Enter brief description" />
         </Form.Group>
-        <Button variant="info" type="submit">Submit</Button>
+        <Button variant="info" type="submit" className="justify-content-center">Submit</Button>
       </Form>
     </div>
   );
