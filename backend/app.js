@@ -44,7 +44,7 @@ app.use('/get-posts', getPostsRoute);
 
 //Routes that require being Logged in
 app.use('/add-thread', checkToken, addThreadRoute);
-app.use('user/add-post', checkToken, addPostRoute);
+app.use('/add-post', checkToken, addPostRoute);
 
 //Routes that require admin Priveleges
 app.use('/delete-post',deletePostRoute);
