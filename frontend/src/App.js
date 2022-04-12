@@ -1,7 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import AdminMenu from './components/AdminMenu';
-import bootstrap from "bootstrap";
+import './input.scss';
+import './output.css'
+import './output.css.map';
 import './style.css';
 
 function App() {
