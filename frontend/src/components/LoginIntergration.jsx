@@ -10,7 +10,7 @@ class LoginIntergration extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isUserLoggedIn: true,
+      loginAnimation: true,
     };
   }
 
@@ -21,9 +21,9 @@ class LoginIntergration extends React.Component {
 
   // called changeState function to track and update mounted animation components
   changeState() {
-    const { isUserLoggedIn } = this.state;
+    const { loginAnimation } = this.state;
 
-    if (isUserLoggedIn) {
+    if (loginAnimation) {
       this.rightSide.classList.remove('right');
       this.rightSide.classList.add('left');
     } else {
@@ -31,7 +31,7 @@ class LoginIntergration extends React.Component {
       this.rightSide.classList.add('right');
     }
     this.setState((prevState) => ({
-      isUserLoggedIn: !prevState.isUserLoggedIn,
+      loginAnimation: !prevState.loginAnimation,
     }));
   }
 
@@ -41,17 +41,17 @@ class LoginIntergration extends React.Component {
   // 4.
 
   render() {
-    const { isUserLoggedIn } = this.state;
-    const current = isUserLoggedIn ? 'Register' : 'Login';
-    const currentActive = isUserLoggedIn ? 'login' : 'register';
+    const { loginAnimation } = this.state;
+    const current = loginAnimation ? 'Register' : 'Login';
+    const currentActive = loginAnimation ? 'login' : 'register';
     return (
       <div className="App">
         <div className="login">
           <div className="container" ref={(ref) => (this.container = ref)}>
-            {isUserLoggedIn && (
+            {loginAnimation && (
               <Login containerRef={(ref) => (this.current = ref)} />
             )}
-            {!isUserLoggedIn && (
+            {!loginAnimation && (
               <Register containerRef={(ref) => (this.current = ref)} />
             )}
           </div>
