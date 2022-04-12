@@ -10,7 +10,7 @@ router.post('/', (req,res) => {
     let {username, password} = req.body;
     console.log([username,password]);
 
-    pool.query('SELECT username,password,user_id FROM users WHERE username=$1', [username], (error,results) => {
+    pool.query('SELECT username,password,user_id,role_id FROM users WHERE username=$1', [username], (error,results) => {
         if (error) {
             console.log(`Login Query error: ${error}`);
             res.status(403).json(error);
@@ -24,7 +24,11 @@ router.post('/', (req,res) => {
             if(data.password == password){ // Send status for correct password and JWT token
                 console.log("Password is correct")
                 // Create JWT token
-                const token = jwt.sign({user:data.username,userid:data.user_id },process.env.TOKEN_SECRET,{expiresIn: '24h'});
+                let admin = false;
+                if (results.role_id == 2){
+                    admin = true;
+                }
+                const token = jwt.sign({user:data.username,userid:data.user_id,isadmin:admin},process.env.TOKEN_SECRET,{expiresIn: '24h'});
                 res.status(200).cookie("access_token", token, {
                     httpOnly: true,
                     secure: process.env.NODE_ENV !== "development",
