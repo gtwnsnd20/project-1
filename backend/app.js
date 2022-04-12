@@ -28,6 +28,7 @@ const getThreadsRoute = require('./routes/get_threads');
 const getPostsRoute = require('./routes/get_posts');
 const addThreadRoute = require('./routes/add_thread');
 const addPostRoute = require('./routes/add_post');
+const deletePostRoute = require('./routes/delete_post');
 
 app.use('/login', loginRoute);
 app.use('/register', registerRoute);
@@ -35,8 +36,13 @@ app.use('/logout', logoutRoute);
 app.use('/get-categories', getCategoriesRoute);
 app.use('/get-threads', getThreadsRoute);
 app.use('/get-posts', getPostsRoute);
+
+//Routes that require being Logged in
 app.use('/add-thread', checkToken, addThreadRoute);
 app.use('/add-post', checkToken, addPostRoute);
+
+//Routes that require admin Priveleges
+app.use('/delete-post',deletePostRoute);
 
 
 // listener
