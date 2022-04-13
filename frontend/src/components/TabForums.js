@@ -7,6 +7,14 @@ const ForumTabsDemo = () => {
   const [threads,setThreads] = useState([]);
   const [isRun, setIsRun] = useState(false);
 
+  //axios call to post thread
+  const makeThread = (title,userid) =>{
+    axios.post('/add_thread', {
+      subject:title,
+      user_id:userid
+  })
+  } 
+
 
   useEffect(()=>{
     if(isRun != true){
@@ -26,7 +34,7 @@ const ForumTabsDemo = () => {
 {/*      <Tabs variant="tabs" defaultActiveKey="category" id="forumtabs-demo" className="mb-3">
         <Tab eventKey="category" title="Placeholder Category"> */}
         {//Beginning of Dynamic Threads
-     threads.map((item,index)=>(<Card>
+     threads.map((item)=>(<Card key={item.thread_id}>
               <Card.Header as="div" className="cardheader">{item.subject}</Card.Header>
               <Card.Body>
                 <Card.Subtitle className="text-muted">
