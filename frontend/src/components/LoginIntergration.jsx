@@ -37,8 +37,7 @@ class LoginIntergration extends React.Component {
 
   // 1. extract user login variable from useState function component
   // 2. created container for pages
-  // 3. created conditional statement to check if user is active
-  // 4.
+  // 3. created conditional statement to check if user login card is present
 
   render() {
     const { loginAnimation } = this.state;
