@@ -1,6 +1,6 @@
 import React from 'react';
-import '../../App.scss';
-import '../../style.scss';
+import '../App.scss';
+import '../style.scss';
 import Login from './Login';
 import Register from './Register';
 
@@ -44,7 +44,7 @@ class LoginIntergration extends React.Component {
     const current = loginAnimation ? 'Register' : 'Login';
     const currentActive = loginAnimation ? 'login' : 'register';
     return (
-      <div className="App">
+
         <div className="login">
           <div className="container" ref={(ref) => (this.container = ref)}>
             {loginAnimation && (
@@ -61,7 +61,7 @@ class LoginIntergration extends React.Component {
             onClick={this.changeState.bind(this)}
           />
         </div>
-      </div>
+
     );
   }
 }
