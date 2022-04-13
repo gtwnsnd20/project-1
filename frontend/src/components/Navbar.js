@@ -45,13 +45,18 @@ function Navbar() {
     <div>
       <Nav className="mx-auto justify-content-end text-center" as="ul">
         <NavItem as="li">
-          <NavLink href="#Home">
+          <NavLink href="/">
             <HouseHeartFill color="#d90429" size={30} />
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#login">
-            <Button type="link">Login or Register</Button> 
+          <NavLink href="/login">
+            <Button type="link" color="#f5cb5c" size={30}>Login</Button> 
+          </NavLink>
+        </NavItem>
+        <NavItem as="li">
+          <NavLink href="#register">
+            <Button type="link" color="#a1b5d8" size={30}>Register</Button>
           </NavLink>
         </NavItem>
       </Nav>
