@@ -2,8 +2,9 @@ import React, { useEffect, useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import axios from "axios"
+import Footer from "./Footer"
 
-const ForumTabsDemo = () => {
+const Posts = () => {
   const [posts,setPosts] = useState([]);
   const [isRun, setIsRun] = useState(false);
   const thread_name="anime";//REPLACE THIS WITH PROPS OR OTHER VALUE TO Label Thread
@@ -20,7 +21,6 @@ const ForumTabsDemo = () => {
     }
    
   })
-
   return (
     <div className="tabcontainer">
       <div>
@@ -52,7 +52,8 @@ const ForumTabsDemo = () => {
         ))
       }
       </div>
+      
     </div>
   );
 };
-export default ForumTabsDemo;
+export default Posts;
