@@ -1,15 +1,43 @@
 config = process.env;
 const jwt = require('jsonwebtoken');
 
-function checkToken (req,res, next){
-    const authcookie = req.cookies.access_token//Get cookie from request
-    console.log(authcookie)
-    jwt.verify(authcookie,config.TOKEN_SECRET,(error,data)=>{//Verify and decrypt the jwt token held within the cookie
-        if(error){
-            console.log("Error processing Cookie"+ error);
-            res.sendStatus(403).json(error);
+//Check to see if user is admin
+function isAdmin(req,res, next){
+    if (req.cookies.access_token){//Check if cookie exists
+        const data = checkToken(req.cookies.access_token[0],res)//Check jwt token and retrieve contents
+        console.log("Gonna check if admin");
+        if (data && data.isAdmin){//Run next route if user is admin
+            console.log("They are a admin")
+            return next();
+        } else {
+            res.status(401).send("Must be admin");
+        }
+    }
+    res.sendStatus(403)
+}
 
-        } else if(data.user){
+//Check to see if user is logged in
+function isUser(req ,res, next){
+    console.log("<----Checking if user---->")
+    if (req.cookies.access_token){//Check if cookie exists
+        const data = checkToken(req.cookies.access_token[0],res)//Check jwt token and retrieve contents
+        console.log(data)
+        console.log("Gonna check if user");
+        if(data){//If jwt was valid run next route
+            return next()
+        }
+    }
+    res.sendStatus(403)
+}
+ 
+//Check jwt token to see if it is valid
+function checkToken (authcookie,res){
+    console.log("^^^^^^^^^^VERIFYING JWT TOKEN^^^^^^^^^^")
+    return jwt.verify(authcookie,config.TOKEN_SECRET,(error,data)=>{//Verify and decrypt the jwt token held within the cookie
+        if(error){//If jwt token cannot be verified
+            console.log("Error processing Cookie"+ error);
+            res.sendStatus(403).send("Invalid user");
+        } else if(data.user){//run after jwt token is decrypted and verified
             let lifeSpan = config.life_span;
             const now = new Date()
             let lifeLeft = data.exp - now.getTime();
@@ -17,8 +45,9 @@ function checkToken (req,res, next){
                 //Command to renew cookie.
             }
             console.log("JWT:"+JSON.stringify(data));
-            return next();
+            return data;
         }
-    })
+        return null;
+    });
 }
-module.exports = checkToken;
+module.exports = {isAdmin,isUser};
