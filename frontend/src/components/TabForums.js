@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, Tab, Tabs, } from 'react-bootstrap';
 import { ThreeDots } from "react-bootstrap-icons";
+import { Link } from 'react-router-dom';
 import axios from "axios"
 
 const ForumTabsDemo = () => {
@@ -44,9 +45,14 @@ const ForumTabsDemo = () => {
               </Card.Body>
               <Card.Footer className="cardheader">
                 <div className="mx-auto justify-content-end text-end">
-                  <Card.Link as="a" href="#threadpage">
+                  {/* <Card.Link as="a" href="#threadpage"> */}
+                  <Link to={{pathname: '/post',
+                    state: {thread_id: item.thread_id,thread_name:item.thread_name}}}>go to post</Link>
+                  {/* <link> */}
                     <ThreeDots color="#a1b5d8" size={30} />
-                  </Card.Link>
+                  {/* </link> */}
+                  
+                  {/* </Card.Link> */}
                 </div>
               </Card.Footer>
             </Card>
