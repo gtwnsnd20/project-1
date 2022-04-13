@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 import axios from "axios"
 import Footer from "./Footer"
 
-const Posts = () => {
+const Posts = (props) => {
   const [posts,setPosts] = useState([]);
   const [isRun, setIsRun] = useState(false);
   const thread_name="anime";//REPLACE THIS WITH PROPS OR OTHER VALUE TO Label Thread
@@ -13,8 +13,9 @@ const Posts = () => {
   //const posts =[{username:"hunterrisse",content:"Lorem Ipsum",post_date:"Today"}]
   //On load, get posts
   useEffect(()=>{
+    console.log(props)
     if(isRun != true){
-       axios.get(`http://localhost:3001/get-posts?thread_id=${thread_id}`).then((res)=>{
+       axios.get(`http://localhost:3001/get-posts?thread_id=${props.thread_id}`).then((res)=>{
       setPosts(res.data)
     })
     setIsRun(true);
@@ -24,7 +25,7 @@ const Posts = () => {
   return (
     <div className="tabcontainer">
       <div>
-        <h1>{thread_name}</h1>
+        <h1>{props.thread_name}</h1>
       </div>
       <br />
       <div>

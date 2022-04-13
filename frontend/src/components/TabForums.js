@@ -46,8 +46,8 @@ const ForumTabsDemo = () => {
               <Card.Footer className="cardheader">
                 <div className="mx-auto justify-content-end text-end">
                   {/* <Card.Link as="a" href="#threadpage"> */}
-{                   <Link to={{pathname: '/posts',
-                    state: {thread_id: item.thread_id,thread_name:item.thread_name}}}>go to post</Link> }
+{                   <Link to='/posts'
+                    state={{thread_id: item.thread_id,thread_name:item.subject}}>go to post</Link> }
                   {/* <link> */}
                     <ThreeDots color="#a1b5d8" size={30} />
                   {/* </link> */}
