@@ -8,8 +8,9 @@ const ForumTabsDemo = () => {
   const [isRun, setIsRun] = useState(false);
 
   //axios call to post thread
-  const makeThread = (title,userid) =>{
+  const makeThread = (catid,title,userid) =>{
     axios.post('/add_thread', {
+      cat_id:catid,
       subject:title,
       user_id:userid
   })
