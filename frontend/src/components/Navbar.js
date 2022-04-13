@@ -49,12 +49,7 @@ function Navbar() {
         </NavItem>
         <NavItem>
           <NavLink href="#login">
-            <Button type="link" color="#f5cb5c" size={30}>Login</Button> 
-          </NavLink>
-        </NavItem>
-        <NavItem as="li">
-          <NavLink href="#register">
-            <Button type="link" color="#a1b5d8" size={30}>Register</Button>
+            <Button type="link">Login or Register</Button> 
           </NavLink>
         </NavItem>
       </Nav>

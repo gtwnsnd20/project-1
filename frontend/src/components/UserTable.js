@@ -1,12 +1,12 @@
 import React from "react";
-import { ButtonToolbar,Button, Card, Table, Form, Row, Col, InputGroup, Image } from "react-bootstrap";
+import { ButtonToolbar,Button, Card, Table, Form, Row, Col, InputGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faSearch,  } from "@fortawesome/free-solid-svg-icons";
 import MyAvatar from "./Assets/Avatar";
 import '../input.scss';
 
 
-function UserList() {
+function UserTable() {
   return (
     <>
       <div className="justify-content-between text-center align-items-center py-4">
@@ -85,4 +85,4 @@ function UserList() {
     </>
   );
 };
-export default UserList;
+export default UserTable;

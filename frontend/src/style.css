@@ -75,14 +75,10 @@ footer {
   height: auto;
 }
 
-.sitefooter img{
-  width: 30px;
-} 
-
 .navbar {
   background-color: transparent !important;
   display: flex;
-  /* padding: 1rem 1rem; */
+  position: absolute;
   flex-wrap: wrap;
   justify-content: space-between !important;
   box-shadow: none;
@@ -161,10 +157,4 @@ footer {
   letter-spacing: 2px;
 }
 
-.search{
-  align-items: center;
-  justify-content: space-around;
-  text-align: center;
-  padding: 15px;
-}
 

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import { Button } from "react-bootstrap";
-import UserList from "./UserList";
+import UserTable from "./UserTable";
 
 
 function AdminMenu() {
@@ -11,7 +11,7 @@ function AdminMenu() {
   return (
     <div>
       <Navbar />
-      <UserList />
+      <UserTable />
       <Footer />
     </div>
   );
