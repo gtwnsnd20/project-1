@@ -43,7 +43,7 @@ function Navbar() {
     <div>
       <Nav className="mx-auto justify-content-end text-center" as="ul">
         <NavItem as="li">
-          <NavLink href="#Home">
+          <NavLink href="/">
             <HouseHeartFill color="#d90429" size={30} />
           </NavLink>
         </NavItem>
