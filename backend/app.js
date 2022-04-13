@@ -43,7 +43,7 @@ app.use('/get-threads', getThreadsRoute);
 app.use('/get-posts', getPostsRoute);
 
 //Routes that require being Logged in
-app.use('/add-thread', isUser, addThreadRoute);
+app.use('/add-thread/:cat_id', isUser, addThreadRoute);
 app.use('/add-post', isUser, addPostRoute);
 
 //Routes that require admin Priveleges
