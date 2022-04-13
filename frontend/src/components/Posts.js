@@ -7,8 +7,8 @@ import Footer from "./Footer"
 const Posts = (props) => {
   const [posts,setPosts] = useState([]);
   const [isRun, setIsRun] = useState(false);
-  const thread_name="anime";//REPLACE THIS WITH PROPS OR OTHER VALUE TO Label Thread
-  const thread_id=1;//REPLACE THIS WITH PROPS OR OTHER VALUE TO GET RELEVANT POSTS
+  
+ 
 
   //const posts =[{username:"hunterrisse",content:"Lorem Ipsum",post_date:"Today"}]
   //On load, get posts

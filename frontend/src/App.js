@@ -14,6 +14,7 @@ import {
   Routes,
   Route
 } from "react-router-dom";
+import LoginPage from './Pages/LoginPage';
 
 
 const rootElement = document.getElementById("root");
@@ -23,7 +24,7 @@ function App() {
       <Routes>  
         <Route path='/' element={<Home />}/>
         <Route path='/posts' element={<PostPage />}/>
-        {/* <Route path='/' element={<ForumTabsDemo />}/> */}
+        <Route path='/login' element={<LoginPage />}/> 
       </Routes>
     </BrowserRouter>
   );

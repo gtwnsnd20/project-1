@@ -48,7 +48,7 @@ function Navbar() {
           </NavLink>
         </NavItem>
         <NavItem>
-          <NavLink href="#login">
+          <NavLink href="/login">
             <Button type="link" color="#f5cb5c" size={30}>Login</Button> 
           </NavLink>
         </NavItem>
