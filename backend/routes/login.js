@@ -36,7 +36,7 @@ router.post('/', (req,res) => {
                 }).json();
             } else { // Send status for incorrect password
                 console.log("Password is incorrect");
-                res.status(403).json();
+                res.status(400).json();
             }
         }
     })
