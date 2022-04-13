@@ -6,6 +6,8 @@ import MyAvatar from "./Assets/Avatar";
 
 function Navbar() {
   //add useStates and checking session for active user login/data and isAdmin
+  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [isAdminUser, setIsAdminUser] = useState();
 
   //navbar when a user is logged in
   const renderLoggedInNav = (

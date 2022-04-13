@@ -127,6 +127,9 @@ footer {
   border: white;
 }
 
+.card-container{
+  align-items: center;
+}
 .createthread{
   padding-top: 40px;
   padding-bottom: 40px;
