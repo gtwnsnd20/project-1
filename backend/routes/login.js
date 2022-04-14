@@ -7,6 +7,10 @@ const router = express.Router();
 const one_day = 24 * 60 * 60 * 1000;
 
 router.post('/', (req,res) => {
+    console.log("Login")
+    res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.set('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Headers','Origin' ,'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept,set-cookie,cookies');
     let {username, password} = req.body;
     console.log([username,password]);
 
@@ -33,7 +37,7 @@ router.post('/', (req,res) => {
                     httpOnly: true,
                     secure: process.env.NODE_ENV !== "development",
                     maxAge: one_day
-                }).json();
+                }).json(token);
             } else { // Send status for incorrect password
                 console.log("Password is incorrect");
                 res.status(400).json();

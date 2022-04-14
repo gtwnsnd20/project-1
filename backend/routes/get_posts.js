@@ -5,6 +5,8 @@ const router = express.Router();
 
 // gets all posts of a thread from the DB
 router.get('/', (req,res) => {
+  res.set('Access-Control-Allow-Origin', 'http://localhost:3000')
+  res.set('Access-Control-Allow-Credentials', 'true')
   let thread_id = req.query.thread_id;
   console.log(thread_id);
 

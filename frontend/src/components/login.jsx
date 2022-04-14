@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import loginImg from './Assets/Images/chicken.png';
 import axios from 'axios';
-
+//axios.defaults.withCredentials = true;
 function Login(props) {
 
   // tracks state of error message
@@ -20,11 +20,18 @@ function Login(props) {
     let {username,password} = document.forms[0];
     
     axios.post(`http://localhost:3001/login`,
-      {username:username.value, password:password.value}
+      {username:username.value, password:password.value},{headers:{ 
+
+        "Access-Control-Allow-Origin" : "http://localhost:3001/login",
+        "Access-Control-Allow-Methods":"POST",
+        'Access-Control-Allow-Headers': 'text/plain'
+      }} 
     ).then((response) => { // logs in user, saves cookie(to be finished)
-        console.log(response.status);
+        console.log(response);
         console.log("You've logged in!");
         console.log(response.config.data);
+        console.log(response.data)
+        document.cookie = `access_token=${response.data}`
     }).catch((error) => { // catches and sets error message from call
       if(error.response.status === 400) {
         console.log(error.response.status);

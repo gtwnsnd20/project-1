@@ -15,7 +15,7 @@ const Posts = (props) => {
   useEffect(()=>{
     console.log(props)
     if(isRun != true){
-       axios.get(`http://localhost:3001/get-posts?thread_id=${props.thread_id}`).then((res)=>{
+       axios.get(`http://localhost:3001/get-posts?thread_id=${props.thread_id}`,{ withCredentials: true }).then((res)=>{
       setPosts(res.data)
     })
     setIsRun(true);
