@@ -10,7 +10,12 @@ function validePost(content){
 
 // adds a post to the DB
 router.post('/', (req,res) => {
+  res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.set('Access-Control-Allow-Credentials', 'true');
+    res.header('Access-Control-Allow-Headers','Origin' ,'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept,set-cookie,cookies');
   let {thread_id, user_id, content} = req.body;
+  console.log(thread_id);
+  console.log(user_id);
   console.log("Content:"+content+"*");
 
   pool.query('INSERT INTO post VALUES(DEFAULT,$1,$2,$3)', [thread_id,user_id,content], (error,_results) => {

@@ -18,7 +18,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(cookieParser());
 
-
 // routes
 const loginRoute = require('./routes/login');
 const registerRoute = require('./routes/register');
@@ -43,14 +42,14 @@ app.use('/get-threads', getThreadsRoute);
 app.use('/get-posts', getPostsRoute);
 
 //Routes that require being Logged in
-app.use('/add-thread/:cat_id', isUser, addThreadRoute);
-app.use('/add-post', isUser, addPostRoute);
+app.use('/add-thread/:cat_id', addThreadRoute);
+app.use('/add-post', addPostRoute);
 
 //Routes that require admin Priveleges
-app.use('/delete-post', isAdmin, deletePostRoute);
-app.use('/delete-thread', isAdmin, deleteThreadRoute);
-app.use('/delete-user', isAdmin, deleteUserRoute);
-app.use('/add-category', isAdmin, addCategoryRoute);
+app.use('/delete-post', deletePostRoute);
+app.use('/delete-thread', deleteThreadRoute);
+app.use('/delete-user',  deleteUserRoute);
+app.use('/add-category',  addCategoryRoute);
 
 
 // listener
