@@ -52,7 +52,7 @@ function Login(props) {
   // 4. created form API and declared input labels with placeholders
 
   return(
-    <div className="card-container" ref={props.containerRef}>
+    <div className="card-container loginregister" ref={props.containerRef}>
       <div className="header">Login</div>
       <div className="content">
         <div className="image">
