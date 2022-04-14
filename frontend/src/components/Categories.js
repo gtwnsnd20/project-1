@@ -1,75 +1,49 @@
 import React, { useEffect, useState } from "react";
-import { Card, Tab, Tabs, } from 'react-bootstrap';
+import { Card, Tab, TabContent, Tabs, } from 'react-bootstrap';
 import { ThreeDots } from "react-bootstrap-icons";
 import { Link } from 'react-router-dom';
 import axios from "axios"
-
-const ForumTabsDemo = (props) => {
-  const [threads,setThreads] = useState([]);
+import { propTypes } from "react-bootstrap/esm/Image";
+import TabForums from "../components/TabForums"
+const cate_id = 1;
+const ForumTabsDemo = () => {
+  const [categories,setCategories] = useState([]);
   const [isRun, setIsRun] = useState(false);
 
-  //axios call to post thread
-  const makeThread = (catid,title,userid) =>{
-    axios.post('/add_thread', {
-      cat_id:catid,
-      subject:title,
-      user_id:userid
-  })
-  } 
-
-
+  //On component load, get categories from Backend
   useEffect(()=>{
-    if(isRun != true){
-      const BASE_URL = "http://localhost:3001/get-threads?"
-      let params = `cat_id=${props.cat_id}`//Set params of search to cat_id that was gotten from props
-       axios.get(BASE_URL+params).then((res)=>{
-      setThreads(res.data)
-      console.log("<----Recieved Threads---->")
-      console.log(res.data)
+    if(isRun != true){//Make sure it only runs once
+       axios.get(`http://localhost:3001/get-categories`).then((res)=>{
+      setCategories(res.data);//Set categories to array retrieved from server
+      console.log(res.data);
     })
-    //console.log(threads)
-    setIsRun(true);
+    console.log(categories);
+    setIsRun(true);//Set variable that says it has retrieved categories
     }
    
   })
 
   return (
-   <>{isRun && (
+   <>{isRun && (//Only render if axios call has been made
    <div className="tabcontainer">
-{/*      <Tabs variant="tabs" defaultActiveKey="category" id="forumtabs-demo" className="mb-3">
-        <Tab eventKey="category" title="Placeholder Category"> */}
-        {//Beginning of Dynamic Threads
-     threads.map((item)=>(
-            <Card key={item.thread_id}>
-              <Card.Header as="div" className="cardheader">{item.subject}</Card.Header>
-              <Card.Body>
-                <Card.Subtitle className="text-muted">
-                Brief description of what goes in thread
-                </Card.Subtitle>
-              </Card.Body>
-              <Card.Footer className="cardheader">
-                <div className="mx-auto justify-content-end text-end">
-                  {/* <Card.Link as="a" href="#threadpage"> */}
-{                   <Link to='/posts'
-                    state={{thread_id: item.thread_id,thread_name:item.subject}}>go to post</Link> }
-                  {/* <link> */}
-                    <ThreeDots color="#a1b5d8" size={30} />
-                  {/* </link> */}
-                  
-                  {/* </Card.Link> */}
-                </div>
-              </Card.Footer>
-            </Card>
+      <Tabs variant="tabs" defaultActiveKey="1" id="forumtabs-demo" className="mb-3">
+        {//Beginning of Dynamic Categories
+        categories.map((item)=>(
+            <Tab eventKey={item.cat_id} title={item.name} key={item.cat_id}>
+            <div> 
+              <TabForums cat_id={item.cat_id}/>
+            </div>
+          </Tab>    
           
           
           
-           ))
-   }
-{/*         </Tab>
+           ))//End of Dynamic Categories
+        }
+        {/* <TabContent></TabContent> */} 
 
-
-      </Tabs> */}
+      </Tabs>
      </div>
+     
    )}
 
 {/* <div className="tabcontainer">
