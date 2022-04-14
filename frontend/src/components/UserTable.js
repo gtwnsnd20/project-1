@@ -1,7 +1,7 @@
 import React from "react";
 import { ButtonToolbar,Button, Card, Table, Form, Row, Col, InputGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlus, faSearch,  } from "@fortawesome/free-solid-svg-icons";
+import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import MyAvatar from "./Assets/Avatar";
 import '../input.scss';
 
