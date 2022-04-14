@@ -5,14 +5,16 @@ import logo from "./Assets/Images/chicken.png";
 import MyAvatar from "./Assets/Avatar";
 
 function Navbar() {
-  //add useStates and checking session for active user login/data
+  //add useStates and checking session for active user login/data and isAdmin
+  const [isLoggedIn, setIsLoggedIn] = useState();
+  const [isAdminUser, setIsAdminUser] = useState();
 
   //navbar when a user is logged in
   const renderLoggedInNav = (
     <div>
       <Nav className="mx-auto justify-content-end text-center" as="ul">
         <NavItem as="li">
-          <NavLink href="#Home">
+          <NavLink href="/">
             <HouseHeartFill color="#d90429" size={30} />
           </NavLink>
         </NavItem>
@@ -49,12 +51,7 @@ function Navbar() {
         </NavItem>
         <NavItem>
           <NavLink href="/login">
-            <Button type="link" color="#f5cb5c" size={30}>Login</Button> 
-          </NavLink>
-        </NavItem>
-        <NavItem as="li">
-          <NavLink href="#register">
-            <Button type="link" color="#a1b5d8" size={30}>Register</Button>
+            <Button type="link" size={30}>Login or Register</Button> 
           </NavLink>
         </NavItem>
       </Nav>
