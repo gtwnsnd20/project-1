@@ -1,31 +1,21 @@
 import React from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-
-import Footer from './components/Footer';
-import Navbar from './components/Navbar';
-import Posts from './components/Posts';
-import PostPage from './Pages/PostPage';
-import Home from './Pages/Home'
-
 import './styles.css'
 import './main.css';
-import {
-  BrowserRouter,
-  Routes,
-  Route
-} from "react-router-dom";
+import Home from './Pages/Home'
+import PostPage from './Pages/PostPage';
 import LoginPage from './Pages/LoginPage';
+import AdminMenu from './components/AdminMenu';
 
-
-const rootElement = document.getElementById("root");
 function App() {
   return (
     <BrowserRouter>
       <Routes>  
-        <Route path='/' element={<Home />}/>
+        <Route path='/'      element={<Home />}/>
         <Route path='/posts' element={<PostPage />}/>
-        <Route path='/login' element={<LoginPage />}/> 
+        <Route path='/login' element={<LoginPage />}/>
+        <Route path='/admin' element={<AdminMenu />}/> 
       </Routes>
     </BrowserRouter>
   );
