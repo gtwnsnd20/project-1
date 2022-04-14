@@ -33,11 +33,11 @@ router.post('/', (req,res) => {
                     admin = true;
                 }
                 const token = jwt.sign({user:data.username,userid:data.user_id,isadmin:admin},process.env.TOKEN_SECRET,{expiresIn: '24h'});
-                res.status(200).cookie("access_token", [token,username,results.isadmin],  {
+                res.status(200).cookie("access_token", [token,username, results.isadmin],  {
                     httpOnly: true,
                     secure: process.env.NODE_ENV !== "development",
                     maxAge: one_day
-                }).json([token,{user:data.username,userid:data.user_id,isadmin:admin}]);
+                }).json([token,username,data.user_id,admin]);
             } else { // Send status for incorrect password
                 console.log("Password is incorrect");
                 res.status(400).json();

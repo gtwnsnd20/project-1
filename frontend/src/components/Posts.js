@@ -3,8 +3,10 @@ import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import axios from "axios"
 import Footer from "./Footer"
+import PostFormModal from './PostFormModal';
 
 const Posts = (props) => {
+  const thread_id = props.thread_id;
   const [posts,setPosts] = useState([]);
   const [isRun, setIsRun] = useState(false);
   
@@ -13,7 +15,7 @@ const Posts = (props) => {
   //const posts =[{username:"hunterrisse",content:"Lorem Ipsum",post_date:"Today"}]
   //On load, get posts
   useEffect(()=>{
-    console.log(props)
+    /* console.log(props.thread_id) */
     if(isRun != true){
        axios.get(`http://localhost:3001/get-posts?thread_id=${props.thread_id}`,{ withCredentials: true }).then((res)=>{
       setPosts(res.data)
@@ -42,16 +44,17 @@ const Posts = (props) => {
           </Card.Body>
           <Card.Footer className="cardheader">
             <div className="mx-auto justify-content-end text-end">
-              <Button type="button" color="#a1b5d8" size={30}>
-                Reply
-              </Button>
+              
             </div>
           </Card.Footer>
         </Card>
 
 
         ))
-      }
+      }{<PostFormModal thread_id={thread_id}/>
+        /* <Button type="button" color="#a1b5d8" size={30}>
+                Make Post
+              </Button> */}
       </div>
       
     </div>
