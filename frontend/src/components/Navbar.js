@@ -51,7 +51,7 @@ function Navbar() {
         </NavItem>
         <NavItem>
           <NavLink href="/login">
-            <Button type="link" size={30}>Login or Register</Button> 
+            <Button type="link" size={30}>Login/Register</Button> 
           </NavLink>
         </NavItem>
       </Nav>
@@ -76,6 +76,6 @@ function Navbar() {
       </div>
     </>
   );
-};
+}
 
 export default Navbar;

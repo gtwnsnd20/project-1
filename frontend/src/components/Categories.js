@@ -2,9 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Card, Tab, TabContent, Tabs, } from 'react-bootstrap';
 import { ThreeDots } from "react-bootstrap-icons";
 import { Link } from 'react-router-dom';
-import axios from "axios"
+import axios from "axios";
 import { propTypes } from "react-bootstrap/esm/Image";
-import TabForums from "../components/TabForums"
+import TabForums from "../components/TabForums";
 const cate_id = 1;
 const ForumTabsDemo = () => {
   const [categories,setCategories] = useState([]);
@@ -24,8 +24,8 @@ const ForumTabsDemo = () => {
   })
 
   return (
-   <>{isRun && (//Only render if axios call has been made
-   <div className="tabcontainer">
+    <>{isRun && (//Only render if axios call has been made
+    <div className="tabcontainer">
       <Tabs variant="tabs" defaultActiveKey="1" id="forumtabs-demo" className="mb-3">
         {//Beginning of Dynamic Categories
         categories.map((item)=>(
@@ -42,7 +42,7 @@ const ForumTabsDemo = () => {
         {/* <TabContent></TabContent> */} 
 
       </Tabs>
-     </div>
+    </div>
      
    )}
 

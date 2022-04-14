@@ -3,9 +3,9 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css'
 import './main.css';
-import Home from './Pages/Home'
-import PostPage from './Pages/PostPage';
-import LoginPage from './Pages/LoginPage';
+import Home from './components/Pages/Home'
+import LoginPage from './components/Pages/LoginPage';
+import PostsPage from './components/Pages/PostsPage';
 import AdminMenu from './components/AdminMenu';
 
 function App() {
@@ -13,7 +13,7 @@ function App() {
     <BrowserRouter>
       <Routes>  
         <Route path='/'      element={<Home />}/>
-        <Route path='/posts' element={<PostPage />}/>
+        <Route path='/posts' element={<PostsPage />}/>
         <Route path='/login' element={<LoginPage />}/>
         <Route path='/admin' element={<AdminMenu />}/> 
       </Routes>
