@@ -37,7 +37,7 @@ router.post('/', (req,res) => {
                     httpOnly: true,
                     secure: process.env.NODE_ENV !== "development",
                     maxAge: one_day
-                }).json(token);
+                }).json([token,{user:data.username,userid:data.user_id,isadmin:admin}]);
             } else { // Send status for incorrect password
                 console.log("Password is incorrect");
                 res.status(400).json();
