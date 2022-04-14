@@ -8,7 +8,8 @@ import Posts from './components/Posts';
 import PostPage from './Pages/PostPage';
 import Home from './Pages/Home'
 
-import './style.css';
+import './styles.css'
+import './main.css';
 import {
   BrowserRouter,
   Routes,
