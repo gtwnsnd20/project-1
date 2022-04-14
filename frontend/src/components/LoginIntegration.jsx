@@ -6,7 +6,7 @@ import Register from './Register';
 
 // created state tracker for tracking user login
 // received props from login and register component files
-class LoginIntergration extends React.Component {
+class LoginIntegration extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -80,4 +80,4 @@ const RightSide = (props) => {
   );
 };
 
-export default LoginIntergration;
+export default LoginIntegration;
