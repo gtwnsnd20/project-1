@@ -9,7 +9,7 @@ function isAdmin(req,res, next){
     res.header('Access-Control-Allow-Headers','Origin' ,'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept,set-cookie');
     console.log(req.cookies);
     if (req.cookies.access_token){//Check if cookie exists
-        const data = checkToken(req.cookies.access_token,res)//Check jwt token and retrieve contents
+        const data = checkToken(req.cookies.access_token[0],res)//Check jwt token and retrieve contents
         console.log("Gonna check if admin");
         if (data && data.isAdmin){//Run next route if user is admin
             console.log("They are a admin")
@@ -32,7 +32,7 @@ function isUser(req ,res, next){
     //console.log(res)
     console.log(req.cookies);
     if (req.cookies.access_token){//Check if cookie exists
-        const data = checkToken(req.cookies.access_token,res)//Check jwt token and retrieve contents
+        const data = checkToken(req.cookies.access_token[0],res)//Check jwt token and retrieve contents
         console.log(data)
         console.log("Gonna check if user");
         if(data){//If jwt was valid run next route
