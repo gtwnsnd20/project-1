@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom';
 import axios from "axios";
 import { propTypes } from "react-bootstrap/esm/Image";
 import TabForums from "../components/TabForums";
+import ThreadForm from "./ThreadForm";
+
 const cate_id = 1;
 const ForumTabsDemo = () => {
   const [categories,setCategories] = useState([]);
@@ -17,7 +19,6 @@ const ForumTabsDemo = () => {
       setCategories(res.data);//Set categories to array retrieved from server
       console.log(res.data);
     })
-    console.log(categories);
     setIsRun(true);//Set variable that says it has retrieved categories
     }
    
@@ -42,6 +43,7 @@ const ForumTabsDemo = () => {
         {/* <TabContent></TabContent> */} 
 
       </Tabs>
+      <ThreadForm categories={categories}/>
     </div>
      
    )}

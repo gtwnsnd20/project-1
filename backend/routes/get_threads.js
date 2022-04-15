@@ -8,7 +8,7 @@ router.get('/', (req,res) => {
     let cat_id = req.query.cat_id;
     console.log(cat_id);
 
-    pool.query('SELECT thread_id,subject,create_date FROM thread WHERE cat_id = $1',[cat_id], (error,results) => {
+    pool.query('SELECT thread_id,subject,thread_description,create_date FROM thread WHERE cat_id = $1',[cat_id], (error,results) => {
         if (error) {
             console.log(`SELECT {...} FROM thread Query Error: ${error}`);
         }
