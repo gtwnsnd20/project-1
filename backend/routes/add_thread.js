@@ -22,7 +22,7 @@ router.post('/', (req,res) => {
   });
   } else {
     console.log('Improper Format')
-    res.status(403).send("Improper Format");
+    res.status(400).send("Improper Format");
   }
   
 

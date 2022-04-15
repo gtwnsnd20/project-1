@@ -9,16 +9,7 @@ const ForumTabsDemo = (props) => {
   const [threads,setThreads] = useState([]);
   const [isRun, setIsRun] = useState(false);
 
-  //axios call to post thread
-  const makeThread = (catid,title,userid) =>{
-    axios.post('/add_thread', {
-      cat_id:catid,
-      subject:title,
-      user_id:userid
-  })
-  } 
-
-
+  //On load, get threads
   useEffect(()=>{
     if(isRun != true){
       const BASE_URL = "http://localhost:3001/get-threads?"

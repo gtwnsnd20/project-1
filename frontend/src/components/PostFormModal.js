@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 //axios.defaults.withCredentials = true;
 
@@ -29,13 +30,13 @@ function PostFormModal(props) {
     event.preventDefault();
     var { content } = document.forms[0];
     console.log(`The variable content=${content.value}`)
-    const params = {thread_id:props.thread_id,user_id:user_id,content:content.value}
-    axios.post(`http://localhost:3001/add-post`,params/* ,{headers:{ 
 
-      "Access-Control-Allow-Origin" : "http://localhost:3001",
-      "Access-Control-Allow-Methods":"POST"
-    }}  */).then((res)=>{
-      console.log(res.data)
+    const params = {thread_id:props.thread_id,user_id:user_id,content:content.value}//Parameters for axios call
+
+    axios.post(`http://localhost:3001/add-post`,params).then((res)=>{
+      window.location.reload(false);//Reload page once thread is added.
+    }).catch((error)=>{
+      console.log(error);
     })
 
   }
