@@ -44,7 +44,7 @@ const ForumTabsDemo = (props) => {
               <Card.Header as="div" className="cardheader">{item.subject}</Card.Header>
               <Card.Body>
                 <Card.Subtitle className="text-muted">
-                Brief description of what goes in thread
+                {item.thread_description}
                 </Card.Subtitle>
               </Card.Body>
               <Card.Footer className="cardheader">
