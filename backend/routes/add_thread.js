@@ -4,16 +4,16 @@ const pool = require('../api/database');
 const router = express.Router();
 
 function validateThread(cat_id,subject,thread_description,user_id){
-  return !!(!isNaN(cat_id) && !isNaN(user_id) && subject !="" && !isNaN(thread_description));
+  return !!(!isNaN(cat_id) && !isNaN(user_id) && subject !="" && thread_description != "");
 }
 
 // adds a thread to the DB
 router.post('/', (req,res) => {
   let {cat_id, subject,thread_description ,user_id} = req.body;
-  console.log(cat_id,subject,user_id);
-  console.log(!isNaN(user_id))
+  console.log(cat_id,subject,thread_description,user_id);
+
   if (validateThread(cat_id,subject,thread_description,user_id)){
-    pool.query('INSERT INTO thread VALUES(DEFAULT,$1,$2,$3)', [cat_id,subject,thread_description,user_id], (error,_results) => {
+    pool.query('INSERT INTO thread VALUES(DEFAULT,$1,$2,$3,$4)', [cat_id,subject,thread_description,user_id], (error,_results) => {
     if (error) {
       console.log(`INSERT INTO thread Query Error: ${error}`);
     }
@@ -21,6 +21,7 @@ router.post('/', (req,res) => {
     res.status(201).send('New thread created successfully!');
   });
   } else {
+    console.log('Improper Format')
     res.status(403).send("Improper Format");
   }
   
