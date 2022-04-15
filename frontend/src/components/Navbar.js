@@ -1,13 +1,18 @@
-import React, {useState} from "react";
+import React from "react";
 import { Nav, NavItem, NavLink, Container, Button } from 'react-bootstrap';
 import { HouseHeartFill, EnvelopePaperHeartFill, BellFill } from 'react-bootstrap-icons';
 import logo from "./Assets/Images/chicken.png";
 import MyAvatar from "./Assets/Avatar";
+import getCookie from "./Utils/getCookie";
 
 function Navbar() {
-  //add useStates and checking session for active user login/data and isAdmin
-  const [isLoggedIn, setIsLoggedIn] = useState();
-  const [isAdminUser, setIsAdminUser] = useState();
+  //call getCookie to get cookie info
+  const cookieInfo = getCookie();
+  let isLoggedIn=false;
+
+  if(cookieInfo !== null) {
+    isLoggedIn = true;
+  }
 
   //navbar when a user is logged in
   const renderLoggedInNav = (
@@ -34,7 +39,9 @@ function Navbar() {
           </NavLink>
         </NavItem>
         <NavItem>
-          <Button >Logout?</Button>
+          <NavLink href="/logout">
+            <Button>Logout</Button>
+          </NavLink>
         </NavItem>
       </Nav>
     </div>
@@ -71,7 +78,7 @@ function Navbar() {
           </Container>
         </div>
         <div>
-          {renderLoggedOutNav}
+          { isLoggedIn ? renderLoggedInNav : renderLoggedOutNav }
         </div>
       </div>
     </>
