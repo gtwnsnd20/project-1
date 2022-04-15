@@ -17,7 +17,6 @@ function PostFormModal(props) {
 
   const handleSubmit = (event) => {
     //Get cookie from Document
-  const cookies = document.cookie;
   const authCookie = document.cookie//Use regex to retrieve acces_token cookie from all cookies and use split to turn it into an array
   .split('; ')
   .find(row => row.startsWith('access_token='))
@@ -25,6 +24,7 @@ function PostFormModal(props) {
   .split(',');
     let username= authCookie[1];
     let user_id = authCookie[2];
+    
     console.log(`User_ID=${user_id}`)
     event.preventDefault();
     var { content } = document.forms[0];
