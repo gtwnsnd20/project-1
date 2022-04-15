@@ -2,9 +2,9 @@ const express = require('express');
 const pool = require('../api/database');
 //const bcrypt = require('bcryptjs'); Encryption
 const jwt = require('jsonwebtoken');
-
-const router = express.Router();
 const one_day = 24 * 60 * 60 * 1000;
+const router = express.Router();
+
 
 router.post('/', (req,res) => {
     console.log("Login")
