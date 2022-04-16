@@ -4,6 +4,7 @@ import { Card } from 'react-bootstrap';
 import axios from "axios"
 import Footer from "./Footer"
 import PostFormModal from './PostFormModal';
+import getCookie from './Utils/getCookie';
 
 const Posts = (props) => {
   const thread_id = props.thread_id;
@@ -51,10 +52,7 @@ const Posts = (props) => {
 
 
         ))
-      }{<PostFormModal thread_id={thread_id}/>
-        /* <Button type="button" color="#a1b5d8" size={30}>
-                Make Post
-              </Button> */}
+      }{getCookie() != null ? <PostFormModal thread_id={thread_id}/>: <p><a href="/login">Login to Add Post</a></p>}
       </div>
       
     </div>

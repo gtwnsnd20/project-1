@@ -3,7 +3,7 @@ function getCookie() {
   
   try {
     const authCookie = document.cookie.split('; ').find(
-      row => row.startsWith('access_token=')
+      row => row.startsWith('user_token=')
     ).split('=')[1].split(',');
 
     const token = authCookie[0];

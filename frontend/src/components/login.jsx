@@ -50,7 +50,7 @@ function Login(props) {
       }} 
     ).then((response) => { // logs in user, creates cookie from axios response
         console.log("You've logged in!");
-        document.cookie = `access_token=${response.data}`;
+        document.cookie = `user_token=${response.data}`;
         setIsLoggedIn(true);
     }).catch((error) => { // catches and sets error message from call
       if(error.response.status === 400) {

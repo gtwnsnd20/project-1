@@ -1,10 +1,16 @@
 // import modules
 const express = require('express');
-const {isAdmin,isUser} = require('./middleware/auth');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
+var corsOptions = {
+  origin: "http://localhost:3000",
+  credentials:true
 
+} 
+//Import custom Middleware
+const {isAdmin,isUser} = require('./middleware/auth');
+//const corsHeaders = require('./middleware/corsHeaders')
 
 //app
 const app = express();
@@ -13,10 +19,14 @@ dotenv.config();
 
 
 // middleware
+app.options('*',cors(corsOptions));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(cors(corsOptions));
 app.use(cookieParser());
+
+ //CORS Settings
+
 
 // routes
 const loginRoute = require('./routes/login');
@@ -42,14 +52,14 @@ app.use('/get-threads', getThreadsRoute);
 app.use('/get-posts', getPostsRoute);
 
 //Routes that require being Logged in
-app.use('/add-thread/', addThreadRoute);//:cat_id
-app.use('/add-post', addPostRoute);
+app.use('/add-thread/', isUser, addThreadRoute);//:cat_id
+app.use('/add-post', isUser, addPostRoute);
 
 //Routes that require admin Priveleges
-app.use('/delete-post', deletePostRoute);
-app.use('/delete-thread', deleteThreadRoute);
-app.use('/delete-user',  deleteUserRoute);
-app.use('/add-category',  addCategoryRoute);
+app.use('/delete-post', isAdmin, deletePostRoute);
+app.use('/delete-thread', isAdmin, deleteThreadRoute);
+app.use('/delete-user', isAdmin, deleteUserRoute);
+app.use('/add-category', isAdmin, addCategoryRoute);
 
 
 // listener

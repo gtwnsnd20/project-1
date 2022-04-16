@@ -2,8 +2,9 @@ import React, {useState} from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
-//axios.defaults.withCredentials = true;
-
+import getCookie from "./Utils/getCookie";
+axios.defaults.withCredentials = true;
+console.log(document.cookie)
 
 
 //Actual Component
@@ -20,11 +21,7 @@ function PostFormModal(props) {
   const handleSubmit = (event) => {
     //Get cookie from Document
     setContentError(false);
-  const authCookie = document.cookie//Use regex to retrieve acces_token cookie from all cookies and use split to turn it into an array
-  .split('; ')
-  .find(row => row.startsWith('access_token='))
-  .split('=')[1]
-  .split(',');
+  const authCookie = getCookie;
     let username= authCookie[1];
     let user_id = authCookie[2];
     
@@ -41,7 +38,12 @@ function PostFormModal(props) {
     }
     
     if(!contentError){//Send if length of content was good.
-      axios.post(`http://localhost:3001/add-post`,params).then((res)=>{
+      axios.post(`http://localhost:3001/add-post`,params,{headers:{ 
+
+        "Access-Control-Allow-Origin" : "http://localhost:3001",
+        "Access-Control-Allow-Methods":"POST,OPTIONS,GET",
+        'Access-Control-Allow-Headers': 'text/plain'
+      }} ).then((res)=>{
       window.location.reload(false);//Reload page once thread is added.
       }).catch((error)=>{
         console.log(error);
