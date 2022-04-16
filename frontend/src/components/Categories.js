@@ -6,8 +6,11 @@ import axios from "axios";
 import { propTypes } from "react-bootstrap/esm/Image";
 import TabForums from "../components/TabForums";
 import ThreadForm from "./ThreadForm";
+import getCookie from "./Utils/getCookie";
+const  styleObject = {
+  textAlign: "center"
+}
 
-const cate_id = 1;
 const ForumTabsDemo = () => {
   const [categories,setCategories] = useState([]);
   const [isRun, setIsRun] = useState(false);
@@ -43,7 +46,7 @@ const ForumTabsDemo = () => {
         {/* <TabContent></TabContent> */} 
 
       </Tabs>
-      <ThreadForm categories={categories}/>
+      {getCookie() != null ? <ThreadForm categories={categories}/> :<p style={styleObject}><a href="/login">Login to Create Thread</a></p> }
     </div>
      
    )}

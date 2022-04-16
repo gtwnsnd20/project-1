@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { Windows } from "react-bootstrap-icons";
 import { Link } from "react-router-dom";
+import getCookie from "./Utils/getCookie";
 
 //need to connect to database to get thread ids and add new threads to db
 //maybe add a way to add the username of who created the thread 
@@ -20,8 +21,8 @@ function ThreadForm(props) {
 
   //function to handle submit event --incomplete for now
   const handleSubmit = (event) => {
-    const authCookie = getCookie;
     event.preventDefault();
+    const authCookie = getCookie;
     setErrorMessage(false);//Reset rrorMessages
     console.log(errorMessage)
     const subject = document.forms[0].subject.value;//Because input is a controlled component, we must get the value from forms
@@ -74,7 +75,6 @@ function ThreadForm(props) {
 
 
   };
-  const renderErrorMessage = (name) => name === errorMessage.name && (<div className='error'>{errorMessage.message}</div>);
   //code for new thread form with inputs for the title and description
   const renderThreadForm = (
 

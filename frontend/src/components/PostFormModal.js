@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import getCookie from "./Utils/getCookie";
 axios.defaults.withCredentials = true;
 console.log(document.cookie)
 
@@ -20,11 +21,7 @@ function PostFormModal(props) {
   const handleSubmit = (event) => {
     //Get cookie from Document
     setContentError(false);
-  const authCookie = document.cookie//Use regex to retrieve acces_token cookie from all cookies and use split to turn it into an array
-  .split('; ')
-  .find(row => row.startsWith('user_token='))
-  .split('=')[1]
-  .split(',');
+  const authCookie = getCookie;
     let username= authCookie[1];
     let user_id = authCookie[2];
     
