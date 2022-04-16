@@ -27,7 +27,7 @@ function ThreadForm(props) {
 
     const authCookie = document.cookie//Use regex to retrieve acces_token cookie from all cookies and use split to turn it into an array
     .split('; ')
-    .find(row => row.startsWith('access_token='))
+    .find(row => row.startsWith('user_token='))
     .split('=')[1]
     .split(',');
       let username= authCookie[1];//Store user information from cookie

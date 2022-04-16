@@ -24,7 +24,7 @@ function Register(props) {
     ).then((response) => { // logs in user, saves cookie(to be finished)
         console.log(response.status);
         console.log("You've made a new account!");
-        document.cookie = `access_token=${response.data}`
+        document.cookie = `user_token=${response.data}`
     }).catch((error) => { // catches and sets error message from call
       if(error.response.status === 409) {
         console.log(error.response.status);
