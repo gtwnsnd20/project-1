@@ -7,7 +7,6 @@ function LoginPage(){
         <>
             <Navbar />
             <LoginIntegration/>
-            <Footer/>
         </>
     )
 }

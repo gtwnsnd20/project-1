@@ -12,7 +12,6 @@ function Home() {
             <main>
                 <Categories />
             </main>
-            <Footer />
         </>
     );
 }
