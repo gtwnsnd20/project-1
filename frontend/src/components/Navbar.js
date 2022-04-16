@@ -5,6 +5,7 @@ import logo from "./Assets/Images/chicken.png";
 import MyAvatar from "./Assets/Avatar";
 import getCookie from "./Utils/getCookie";
 
+let isAdmin = false;//SEt admin status
 function Navbar() {
   //call getCookie to get cookie info
   const cookieInfo = getCookie();
@@ -12,12 +13,20 @@ function Navbar() {
 
   if(cookieInfo !== null) {
     isLoggedIn = true;
+    isAdmin = cookieInfo.is_admin;
+    console.log(isAdmin);
+
   }
 
   //navbar when a user is logged in
   const renderLoggedInNav = (
     <div>
       <Nav className="mx-auto justify-content-end text-center" as="ul">
+        {isAdmin && <NavItem as="li">
+          <NavLink href="/admin">
+            <p>Admin Menu</p>
+          </NavLink>
+        </NavItem>}
         <NavItem as="li">
           <NavLink href="/">
             <HouseHeartFill color="#d90429" size={30} />

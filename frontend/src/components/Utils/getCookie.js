@@ -9,7 +9,13 @@ function getCookie() {
     const token = authCookie[0];
     const username = authCookie[1];
     const user_id = authCookie[2];
-    const is_admin = authCookie[3];
+    let is_admin = authCookie[3];
+   if (is_admin == "true"){
+     is_admin = true
+   } else {
+     is_admin = false;
+   }
+
 
     return (
       { token,username,user_id,is_admin }
