@@ -3,10 +3,10 @@ const jwt = require('jsonwebtoken');
 
 //Check to see if user is admin
 function isAdmin(req,res, next){
-    res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
-    res.set('Access-Control-Allow-Credentials', 'true');
+/*     res.set('Access-Control-Allow-Origin', 'http://localhost:3000');
+    res.set('Access-Control-Allow-Credentials', 'true'); */
 
-    res.header('Access-Control-Allow-Headers','Origin' ,'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept,set-cookie');
+    //res.header('Access-Control-Allow-Headers','Origin' ,'X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept,set-cookie');
     console.log(req.cookies);
     if (req.cookies.access_token){//Check if cookie exists
         const data = checkToken(req.cookies.access_token[0],res)//Check jwt token and retrieve contents

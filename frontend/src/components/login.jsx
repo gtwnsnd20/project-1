@@ -31,7 +31,7 @@ function Login(props) {
         console.log("You've logged in!");
         console.log(response.config.data);
         console.log(response.data)
-        document.cookie = `access_token=${response.data}`
+        document.cookie = `user_token=${response.data}`
     }).catch((error) => { // catches and sets error message from call
       if(error.response.status === 400) {
         console.log(error.response.status);
