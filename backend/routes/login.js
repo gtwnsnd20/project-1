@@ -38,6 +38,13 @@ router.post('/', (req,res) => {
                     secure: process.env.NODE_ENV !== "development",
                     maxAge: one_day
                 }).json([token,username,data.user_id,admin]);
+                //update last login date to now
+                pool.query('UPDATE users SET last_login = DEFAULT WHERE user_id=$1 ', [data.user_id], (error,results) => {
+                    if (error) {
+                        console.log(`Update last login date error: ${error}`);
+                    }
+                })
+
             } else { // Send status for incorrect password
                 console.log("Password is incorrect");
                 res.status(400).json();

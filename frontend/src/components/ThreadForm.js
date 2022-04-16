@@ -22,21 +22,16 @@ function ThreadForm(props) {
   //function to handle submit event --incomplete for now
   const handleSubmit = (event) => {
     event.preventDefault();
-    const authCookie = getCookie;
+    const authCookie = getCookie();
     setErrorMessage(false);//Reset rrorMessages
     console.log(errorMessage)
     const subject = document.forms[0].subject.value;//Because input is a controlled component, we must get the value from forms
 
     
 
-      let username= authCookie[1];//Store user information from cookie
-      let user_id = authCookie[2];
-
-    console.log(`The variable subject=${subject}`)
-    console.log(`The cat_id is${cat_id}`)
-    
+      let username= authCookie.username;//Store user information from cookie
+      let user_id = authCookie.userid;
     const params = {cat_id,subject,thread_description,user_id};
-    console.log(params);
     setTitleError(false);
     setCatError(false);
     setDescError(false);

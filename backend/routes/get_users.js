@@ -8,7 +8,7 @@ router.get('/', (req,res) => {
     let cat_id = req.query.cat_id;
     console.log(cat_id);
 
-    pool.query('select user_id,username,email,role_name,register_date,last_login from users JOIN roles ON users.role_id = roles.role_id;', (error,results) => {
+    pool.query('select user_id,username,email,role_name,register_date,last_login from users JOIN roles ON users.role_id = roles.role_id ORDER BY username;', (error,results) => {
         if (error) {
             console.log(`SELECT {...} FROM thread Query Error: ${error}`);
         }

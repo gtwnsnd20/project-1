@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import Navbar from "./Navbar";
-import Footer from "./Footer";
+import Navbar from "../Navbar";
+import Footer from "../Footer";
 import { Button } from "react-bootstrap";
-import UserTable from "./UserTable";
+import UserTable from "../UserTable";
 
 
 function AdminMenu() {

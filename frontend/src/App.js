@@ -6,7 +6,7 @@ import './main.css';
 import Home from './components/Pages/Home'
 import LoginPage from './components/Pages/LoginPage';
 import PostsPage from './components/Pages/PostsPage';
-import AdminMenu from './components/AdminMenu';
+import AdminMenu from './components/Pages/AdminMenu';
 import Logout from './components/Logout';
 
 function App() {

@@ -6,17 +6,23 @@ import Footer from "./Footer"
 import PostFormModal from './PostFormModal';
 import getCookie from './Utils/getCookie';
 
+
+
 const Posts = (props) => {
   const thread_id = props.thread_id;
   const [posts,setPosts] = useState([]);
   const [isRun, setIsRun] = useState(false);
-  
+
+  //adjust dates to match Users timezone
+  function adjustForTimezone(date){
+  const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+  let d = new Date(date).toLocaleString('en-US', { timeZone: currentTimeZone });
+  return d;
+}
  
 
-  //const posts =[{username:"hunterrisse",content:"Lorem Ipsum",post_date:"Today"}]
   //On load, get posts
   useEffect(()=>{
-    /* console.log(props.thread_id) */
     if(isRun != true){
        axios.get(`http://localhost:3001/get-posts?thread_id=${props.thread_id}`,{ withCredentials: true }).then((res)=>{
       setPosts(res.data)
@@ -33,10 +39,10 @@ const Posts = (props) => {
       <br />
       <div>
       {//Begin Dynamic Posts
-        posts.map(item =>(
-          <Card key={item.post_id}>
+        posts.map((item,i) =>(
+          <Card key={i}>
           <Card.Header as="div" className="cardheader">
-           Author:{item.username} Posted:{item.post_date}
+           Author: {item.username} <span>Posted:{adjustForTimezone(item.post_date)}</span>
           </Card.Header>
           <Card.Body>
             <Card.Subtitle className="text-muted">

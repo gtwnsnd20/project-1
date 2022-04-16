@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 import axios from 'axios';
 import getCookie from "./Utils/getCookie";
 axios.defaults.withCredentials = true;
-console.log(document.cookie)
+
+//Store username and userid from cookie
 
 
 //Actual Component
@@ -20,10 +21,12 @@ function PostFormModal(props) {
 
   const handleSubmit = (event) => {
     //Get cookie from Document
+    const authCookie = getCookie();
+    let username= authCookie.username;
+    let user_id = authCookie.userid;
     setContentError(false);
-  const authCookie = getCookie;
-    let username= authCookie[1];
-    let user_id = authCookie[2];
+
+    console.log(user_id)
     
     console.log(`User_ID=${user_id}`)
     event.preventDefault();

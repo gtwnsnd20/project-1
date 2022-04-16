@@ -8,7 +8,7 @@ function getCookie() {
 
     const token = authCookie[0];
     const username = authCookie[1];
-    const user_id = authCookie[2];
+    const userid = authCookie[2];
     let is_admin = authCookie[3];
    if (is_admin == "true"){
      is_admin = true
@@ -18,7 +18,7 @@ function getCookie() {
 
 
     return (
-      { token,username,user_id,is_admin }
+      { token,username,userid,is_admin }
     );
   } catch {
     return null;
