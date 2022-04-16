@@ -1,8 +1,30 @@
-import React, {useState} from 'react';
-import loginImg from './Assets/Images/chicken.png';
+import React, {useState, useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-//axios.defaults.withCredentials = true;
+import getCookie from './Utils/getCookie';
+import loginImg from './Assets/Images/chicken.png';
+
 function Login(props) {
+
+  // tracks state of login success
+  const [isLoggedIn,setIsLoggedIn] = useState(false);
+  
+  //sets loginSuccess to true if user is already logged in
+  useEffect(() => {
+    let cookieInfo = getCookie();
+    if(cookieInfo !== null) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  let navigate = useNavigate();
+
+  // redirect to Home if isLoggedIn == true
+  useEffect(() => {
+    if(isLoggedIn){
+      navigate('../', {replace: true});
+    }
+  }, [isLoggedIn,navigate]);
 
   // tracks state of error message
   const [errorMessage,setErrorMessage] = useState({});
@@ -19,19 +41,17 @@ function Login(props) {
 
     let {username,password} = document.forms[0];
     
-    axios.post(`http://localhost:3001/login`,
+    axios.post('http://localhost:3001/login',
       {username:username.value, password:password.value},{headers:{ 
 
         "Access-Control-Allow-Origin" : "http://localhost:3001/login",
         "Access-Control-Allow-Methods":"POST",
         'Access-Control-Allow-Headers': 'text/plain'
       }} 
-    ).then((response) => { // logs in user, saves cookie(to be finished)
-        console.log(response);
+    ).then((response) => { // logs in user, creates cookie from axios response
         console.log("You've logged in!");
-        console.log(response.config.data);
-        console.log(response.data)
-        document.cookie = `access_token=${response.data}`
+        document.cookie = `access_token=${response.data}`;
+        setIsLoggedIn(true);
     }).catch((error) => { // catches and sets error message from call
       if(error.response.status === 400) {
         console.log(error.response.status);
@@ -53,7 +73,7 @@ function Login(props) {
 
   return(
     <div className="card-container loginregister" ref={props.containerRef}>
-      <div className="header">Login</div>
+      <div className="header">Log In</div>
       <div className="content">
         <div className="image">
           <img src={loginImg} alt='loginImg'/>
@@ -76,6 +96,7 @@ function Login(props) {
       {renderErrorMessage('server')}
     </div>
   );
+
 }
 
 export default Login;

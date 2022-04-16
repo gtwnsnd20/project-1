@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.scss';
 import '../style.scss';
-import Login from './login';
+import Login from './Login';
 import Register from './Register';
 
 // created state tracker for tracking user login
