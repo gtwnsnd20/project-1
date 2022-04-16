@@ -22,7 +22,7 @@ function Login(props) {
   // redirect to Home if isLoggedIn == true
   useEffect(() => {
     if(isLoggedIn){
-      navigate('../', {replace: true});
+      navigate(-1, {replace: true});
     }
   }, [isLoggedIn,navigate]);
 

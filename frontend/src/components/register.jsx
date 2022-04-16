@@ -1,9 +1,20 @@
-import React, {useState} from 'react';
-import loginImg from './Assets/Images/chicken.png';
+import React, {useState,useEffect} from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import loginImg from './Assets/Images/chicken.png';
 
 function Register(props) {
   
+  const [isRegistered,setIsRegistered] = useState(false);
+
+  let navigate = useNavigate();
+
+  useEffect(() => {
+    if(isRegistered){
+      navigate('../', {replace: true});
+    }
+  }, [isRegistered,navigate]);
+
   // tracks state of error message
   const [errorMessage,setErrorMessage] = useState({});
 
@@ -19,12 +30,12 @@ function Register(props) {
 
     let {username,email,password} = document.forms[0];
     
-    axios.post(`http://localhost:3001/register`,
+    axios.post('http://localhost:3001/register',
       {username:username.value, password:password.value, email:email.value}
     ).then((response) => { // logs in user, saves cookie(to be finished)
-        console.log(response.status);
         console.log("You've made a new account!");
         document.cookie = `user_token=${response.data}`
+        setIsRegistered(true);
     }).catch((error) => { // catches and sets error message from call
       if(error.response.status === 409) {
         console.log(error.response.status);
