@@ -1,13 +1,12 @@
 import React from 'react';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import 'bootstrap/dist/css/bootstrap.min.css';
-import './styles.css'
-import './main.css';
 import Home from './components/Pages/Home'
 import LoginPage from './components/Pages/LoginPage';
 import PostsPage from './components/Pages/PostsPage';
 import AdminMenu from './components/Pages/AdminMenu';
 import Logout from './components/Logout';
+import './main.scss';
+
 
 function App() {
   return (
