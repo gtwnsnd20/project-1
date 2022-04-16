@@ -1,18 +1,54 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { ButtonToolbar,Button, Card, Table, Form, Row, Col, InputGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
 import MyAvatar from "./Assets/Avatar";
+import axios from "axios";
 import '../input.scss';
+import { Windows } from "react-bootstrap-icons";
+
+
+
+//adjust dates to match Users timezone
+function adjustForTimezone(date){
+  const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
+  let d = new Date(date).toLocaleString('en-US', { timeZone: currentTimeZone });
+  return d;
+}
+
+//Axios Call to delete user
+function deleteUser(event){
+  let userid = event.target.value
+  const BASE_URL = "http://localhost:3001/delete-user?"//URI
+  let params = `user_id=${userid}`;
+   axios.delete(BASE_URL+params).then((res)=>{
+    window.location.reload(false);
+  }) 
+}
 
 
 function UserTable() {
+  const [isRun, setIsRun] = useState(false);
+  const [users, setUsers] = useState([]);
+  //On load, get threads
+  useEffect(()=>{
+    if(isRun != true){
+      const BASE_URL = "http://localhost:3001/get-users";
+      axios.get(BASE_URL).then((res)=>{
+      setUsers(res.data);
+    })
+    setIsRun(true);
+    }
+   
+  },[])
+
+
   return (
     <>
       <div className="justify-content-between text-center align-items-center py-4">
         <h4>Users List</h4>
       </div>
-
+      
       <div className="search mb-4">
         <Row className="justify-content-between align-items-center">
           <Col xs={9} lg={4} className="d-flex">
@@ -32,7 +68,8 @@ function UserTable() {
           </Button>
         </ButtonToolbar>
       </div>
-
+      
+      {/* Beginning of User List */}
       <div>
       <Card border="light" className="table-wrapper table-responsive shadow-sm">
         <Card.Body>
@@ -47,36 +84,26 @@ function UserTable() {
               </tr>
               </thead>
               <tbody>
-                <tr id="demoUserPlaceholder">
-                  <td>
-                    <Card.Link className="d-flex align-items-center">
-                      <MyAvatar className="user-avatar me-3" />
-                      <div className="d-block">
-                        <span className="fw-bold">defaultUsername</span>
-                      </div>
-                    </Card.Link>
-                  </td>
-                  <td>default_user@gmail.com</td>
-                  <td>Basic</td>
-                  <td>March 20, 2020</td>
-                  <td>April 5, 2022</td>
-                </tr>
-                {/* {Users.map(u => (
+                {/* Beginning of Dynamic Userlist */}
+                {users.map(u => (
                   <tr key={u.key}>
                     <td>
                       <Card.Link className="d-flex align-items-center">
-                        <Image src={u.image} className="user-avatar rounded-circle me-3" />
+                        {/* <Image src={u.image} className="user-avatar rounded-circle me-3" /> */}
                         <div className="d-block">
                           <span className="fw-bold">{u.username}</span>
                         </div>
                       </Card.Link>
                     </td>
                     <td>{u.email}</td>
-                    <td>{u.role}</td>
-                    <td>{u.dateRegistered}</td>
-                    <td>{u.lastLogin}</td>
+                    <td>{u.role_name}</td>
+                    <td>{adjustForTimezone(u.register_date)}</td>
+                    <td>{adjustForTimezone(u.last_login)}</td>
+                    <d><button onClick={deleteUser} value={u.user_id}>Delete User</button></d>
                   </tr>
-                ))} */}
+                ))} 
+                {/* Beginning of Dynamic Userlist */}
+
               </tbody>
           </Table>
         </Card.Body>

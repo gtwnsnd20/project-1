@@ -3,20 +3,21 @@ const express = require('express');
 const cookieParser = require('cookie-parser');
 const cors = require('cors');
 const dotenv = require('dotenv');
+
+//CORS Settings
 var corsOptions = {
   origin: "http://localhost:3000",
   credentials:true
 
 } 
+
 //Import custom Middleware
 const {isAdmin,isUser} = require('./middleware/auth');
-//const corsHeaders = require('./middleware/corsHeaders')
 
 //app
 const app = express();
 const port = 3001;
 dotenv.config();
-
 
 // middleware
 app.options('*',cors(corsOptions));
@@ -24,9 +25,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cors(corsOptions));
 app.use(cookieParser());
-
- //CORS Settings
-
 
 // routes
 const loginRoute = require('./routes/login');
@@ -41,6 +39,7 @@ const deletePostRoute = require('./routes/delete_post');
 const deleteThreadRoute = require('./routes/delete_thread');
 const deleteUserRoute = require('./routes/delete_user');
 const addCategoryRoute = require('./routes/add_category');
+const getUsersRoute = require('./routes/get_users');
 
 
 //Routes that can be accessed by anyone
@@ -60,7 +59,7 @@ app.use('/delete-post', isAdmin, deletePostRoute);
 app.use('/delete-thread', isAdmin, deleteThreadRoute);
 app.use('/delete-user', isAdmin, deleteUserRoute);
 app.use('/add-category', isAdmin, addCategoryRoute);
-
+app.use('/get-users', isAdmin, getUsersRoute);
 
 // listener
 app.listen(port, () => {

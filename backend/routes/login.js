@@ -32,8 +32,8 @@ router.post('/', (req,res) => {
                 if (results.rows[0].role_id == 2){
                     admin = true;
                 }
-                const token = jwt.sign({user:data.username,userid:data.user_id,isadmin:admin},process.env.TOKEN_SECRET,{expiresIn: '24h'});
-                res.status(200).cookie("access_token", [token,username, results.isadmin],  {
+                const token = jwt.sign({user:data.username,userid:data.user_id,isAdmin:admin},process.env.TOKEN_SECRET,{expiresIn: '24h'});
+                res.status(200).cookie("access_token", [token,username, results.isAdmin],  {
                     httpOnly: true,
                     secure: process.env.NODE_ENV !== "development",
                     maxAge: one_day

@@ -21,7 +21,7 @@ const ForumTabsDemo = (props) => {
     setIsRun(true);
     }
    
-  })
+  },[])
 
   return (
    <>{isRun && (
