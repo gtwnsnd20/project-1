@@ -81,9 +81,9 @@ function ThreadForm(props) {
         </Form.Group>
         {titleError && <p>Title must be at least 3 characters</p>}
         <Form.Group className="mb-3" controlId="cat_id">
-          <Form.Label>cat_id</Form.Label>
+          <Form.Label>Category</Form.Label>
           <Form.Select value={cat_id} onChange={(e)=> setCat_id(e.target.value)}>
-          <option>Select cat_id</option>
+          <option>Select </option>
           {categories.map((cat_id)=>(<option key={cat_id.cat_id} value={cat_id.cat_id}>{cat_id.name}</option>))}
           </Form.Select>
           

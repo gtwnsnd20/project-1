@@ -12,7 +12,6 @@ function AdminMenu() {
     <div>
       <Navbar />
       <UserTable />
-      <Footer />
     </div>
   );
 }

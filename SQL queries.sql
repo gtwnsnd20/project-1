@@ -21,6 +21,19 @@ INSERT INTO users VALUES (DEFAULT,'hunterrisse','SADJLFAIMSCIMASE','hunterrisse@
 INSERT INTO users VALUES (DEFAULT,'Madison','SADJLFAIMSCIMASE','M@gmail.com',2);
 INSERT INTO users VALUES (DEFAULT,'Gino','SADJLFAIMSCIMASE','Gilgamesh@gmail.com',2);
 INSERT INTO users VALUES (DEFAULT,'Eric','SADJLFAIMSCIMASE','Evara@gmail.com',2);
+INSERT INTO users VALUES (DEFAULT,'Alex','SADJLFAIMSCIMASE','alex@gmail.com',2);
+INSERT INTO users VALUES (DEFAULT,'Madison','SADJLFAIMSCIMASE','M@gmail.com',2);
+INSERT INTO users VALUES (DEFAULT,'Gino','SADJLFAIMSCIMASE','Gilgamesh@gmail.com',2);
+INSERT INTO users VALUES (DEFAULT,'Eric','SADJLFAIMSCIMASE','Evara@gmail.com',2);
+
+INSERT INTO users (username,password,email)
+VALUES
+  ('Upton','TKR14JTE7IG','enim@google.com'),
+  ('Cynthia','QBJ11KET0HH','eleifend@icloud.edu'),
+  ('Gary','GUM82NMV4IE','et@google.ca'),
+  ('Nolan','VVG15WMV3CS','luctus.ut@icloud.ca'),
+  ('Quon','YUO65YQO9OM','curabitur@protonmail.ca');
+
 
 --insert categories
 INSERT INTO category VALUES(DEFAULT,'Anime');

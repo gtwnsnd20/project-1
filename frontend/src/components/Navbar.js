@@ -41,7 +41,7 @@ function Navbar() {
               <h4>{username}</h4>
             </NavItem>}
             {isLoggedIn && <NavItem as="li">
-              <NavLink href="#user">
+              <NavLink href="/userprofile">
                 <MyAvatar />
               </NavLink>
             </NavItem>}
@@ -52,7 +52,7 @@ function Navbar() {
             </NavItem>}
             {!(isLoggedIn) && <NavItem as="li">
               <NavLink href="/login">
-                <Button type="link" size={30}>Login/Register</Button> 
+                <Button type="link" size={30}>Login/Register</Button>
               </NavLink>
             </NavItem>}
             {isLoggedIn && <NavItem as="li">

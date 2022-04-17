@@ -61,13 +61,13 @@ function UserTable() {
           </Col>
         </Row>
       </div>
-      <div className="btn-toolbar mb-2 mb-md-0">
+{/*       <div className="btn-toolbar mb-2 mb-md-0">
         <ButtonToolbar>
           <Button variant="primary" size="sm">
             <FontAwesomeIcon icon={faPlus} className="me-2" />Add New User.
           </Button>
         </ButtonToolbar>
-      </div>
+      </div> */}
       
       {/* Beginning of User List */}
       <div>
@@ -99,7 +99,7 @@ function UserTable() {
                     <td>{u.role_name}</td>
                     <td>{adjustForTimezone(u.register_date)}</td>
                     <td>{adjustForTimezone(u.last_login)}</td>
-                    <d><button onClick={deleteUser} value={u.user_id}>Delete User</button></d>
+                    <td><button onClick={deleteUser} value={u.user_id}>Delete User</button></td>
                   </tr>
                 ))} 
                 {/* Beginning of Dynamic Userlist */}
