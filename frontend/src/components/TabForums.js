@@ -41,7 +41,7 @@ const ForumTabsDemo = (props) => {
                 <div className="mx-auto justify-content-end text-end">
                   {/* <Card.Link as="a" href="#threadpage"> */}
                   {<Link to='/posts'//Link to posts page
-                    state={{thread_id: item.thread_id,thread_name:item.subject}}>go to post</Link> }
+                    state={{thread_id: item.thread_id,thread_name:item.subject}}>View Posts</Link> }
                   {/* <link> */}
                     <ThreeDots color="#a1b5d8" size={30} />
                   {/* </link> */}

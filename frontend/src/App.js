@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from './components/Pages/Home'
 import LoginPage from './components/Pages/LoginPage';
 import PostsPage from './components/Pages/PostsPage';
-import AdminMenu from './components/AdminMenu';
+import AdminMenu from './components/Pages/AdminMenu';
 import Logout from './components/Logout';
 import './main.scss';
 
