@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Card,Button } from 'react-bootstrap';
 import axios from "axios"
-import PostFormModal from './PostFormModal';
+import PostForm from './PostForm';
 import getCookie from './Utils/getCookie';
 
 
@@ -20,32 +20,29 @@ const Posts = (props) => {
 
   //adjust dates to match Users timezone
   function adjustForTimezone(date){
-  const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone
-  let d = new Date(date).toLocaleString('en-US', { timeZone: currentTimeZone });
-  return d;
+  const currentTimeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+  return new Date(date).toLocaleString('en-US', { timeZone: currentTimeZone });
 }
   //Axios Function to delete a post
   function deletePost(event){
     let baseURL = 'http://localhost:3001/delete-post?post_id=';
     let params = event.target.value;//Get post id from value of button
     console.log(params);
-    axios.delete(baseURL+params).then((res)=>{
+    axios.delete(baseURL+params).then((_res)=>{
       setIsRun(false);//Reload page
     }
     )
-    
   }
 
   //On load, get posts
   useEffect(()=>{
-    if(isRun != true){
+    if(isRun !== true){
        axios.get(`http://localhost:3001/get-posts?thread_id=${props.thread_id}`,{ withCredentials: true }).then((res)=>{
       setPosts(res.data)
-    },[isRun])
+    })
     setIsRun(true);
     }
-   
-  })
+  },[isRun,props.thread_id])
   return (
     <div className="tabcontainer">
       <div>
@@ -73,7 +70,7 @@ const Posts = (props) => {
 
 
         ))
-      }{getCookie() != null ? <PostFormModal thread_id={thread_id}/>: <p><a href="/login">Login to Add Post</a></p>}
+      }{getCookie() != null ? <PostForm thread_id={thread_id}/>: <p><a href="/login">Login to Add Post</a></p>}
       </div>
       
     </div>
