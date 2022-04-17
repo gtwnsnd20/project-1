@@ -54,8 +54,13 @@ const Posts = (props) => {
         posts.map((item,i) =>(
           <Card key={i}>
           <Card.Header as="div" className="cardheader">
-           Author: {item.username} <span>Posted:{adjustForTimezone(item.post_date)}</span>
-           {isAdmin && <Button onClick={deletePost} value={item.post_id}>Delete</Button>}
+            <div className="d-flex justify-content-between">
+            Author: {item.username} 
+            
+            <span>Posted:{adjustForTimezone(item.post_date)} {isAdmin && <Button variant='danger' onClick={deletePost} value={item.post_id}>Delete</Button>}</span>
+           
+            </div>
+
           </Card.Header>
           <Card.Body>
             <Card.Subtitle className="text-muted">
