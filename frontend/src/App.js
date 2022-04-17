@@ -5,7 +5,9 @@ import LoginPage from './components/Pages/LoginPage';
 import PostsPage from './components/Pages/PostsPage';
 import AdminMenu from './components/Pages/AdminMenu';
 import Logout from './components/Logout';
+import axios from 'axios';
 import './main.scss';
+axios.defaults.withCredentials = true; // We don't know what this does, but if we delete it the whole thing breaks
 
 
 function App() {
