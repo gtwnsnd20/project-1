@@ -25,8 +25,6 @@ function PostFormModal(props) {
     let user_id = authCookie.userId;
     setContentError(false);
 
-    console.log(username)
-    console.log(user_id)
     
     console.log(`User_ID=${user_id}`)
     event.preventDefault();
