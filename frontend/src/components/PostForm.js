@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import getCookie from "./Utils/getCookie";
-
+axios.defaults.withCredentials = true;
 function PostForm(props) {
 
   // state + functions for showing/hiding form

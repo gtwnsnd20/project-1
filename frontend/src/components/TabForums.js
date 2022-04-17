@@ -1,13 +1,31 @@
 import React, { useEffect, useState } from "react";
-import { Card, Tab, Tabs, } from 'react-bootstrap';
+import { Button, Card, Tab, Tabs, } from 'react-bootstrap';
 import { ThreeDots } from "react-bootstrap-icons";
 import { Link } from 'react-router-dom';
 import axios from "axios"
-
+import getCookie from "./Utils/getCookie"
 
 const ForumTabsDemo = (props) => {
   const [threads,setThreads] = useState([]);
   const [isRun, setIsRun] = useState(false);
+
+  //call getCookie to get cookie info
+  const cookieInfo = getCookie();
+  let isAdmin = false;
+  if(cookieInfo !== null) {
+    isAdmin = cookieInfo.is_admin;
+  }
+  
+ //Axios Function to delete a thread
+ function deleteThread(event){
+    let baseURL = 'http://localhost:3001/delete-thread?thread_id=';
+    let params = event.target.value;//Get post id from value of button
+    console.log(params);
+    axios.delete(baseURL+params).then((res)=>{
+      window.location.reload(false);
+  }
+  )
+}
 
   //On load, get threads
   useEffect(()=>{
@@ -20,8 +38,7 @@ const ForumTabsDemo = (props) => {
     //console.log(threads)
     setIsRun(true);
     }
-   
-  },[])
+  },[setIsRun])
 
   return (
    <>{isRun && (
@@ -38,16 +55,16 @@ const ForumTabsDemo = (props) => {
                 </Card.Subtitle>
               </Card.Body>
               <Card.Footer className="cardheader">
-                <div className="mx-auto justify-content-end text-end">
-                  {/* <Card.Link as="a" href="#threadpage"> */}
-                  {<Link to='/posts'//Link to posts page
-                    state={{thread_id: item.thread_id,thread_name:item.subject}}>View Posts</Link> }
-                  {/* <link> */}
-                    <ThreeDots color="#a1b5d8" size={30} />
-                  {/* </link> */}
-                  
-                  {/* </Card.Link> */}
-                </div>
+                <div className="d-flex justify-content-between">
+                  {isAdmin && <div><Button variant="danger" onClick={deleteThread} value={item.thread_id}>Delete</Button></div>}
+                  <div className="mx-auto justify-content-end text-end">
+                    {<Link to='/posts'//Link to posts page
+                      state={{thread_id: item.thread_id,thread_name:item.subject}}>View Posts</Link> }
+                      <ThreeDots color="#a1b5d8" size={30} />
+                    
+                  </div>
+              </div>
+                
               </Card.Footer>
             </Card>
           
