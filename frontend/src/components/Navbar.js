@@ -16,7 +16,6 @@ function Navbar() {
     isLoggedIn = true;
     username = cookieInfo.username;
     isAdmin = cookieInfo.is_admin;
-    console.log(isAdmin);
   }
 
   return (
