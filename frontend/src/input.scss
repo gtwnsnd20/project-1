@@ -13,6 +13,7 @@ $cyan:    #0dcaf0 !default;
 $white: #fff !default;
 $gray: #C3BCC4;
 $gray-dark: #333533;
+$brown: #5e503f;
 
 $colors: (
   "blue":       $blue,
@@ -27,7 +28,8 @@ $colors: (
   "cyan":       $cyan,
   "white":      $white,
   "gray":       $gray,
-  "gray-dark":  $gray
+  "gray-dark":  $gray,
+  "brown": $brown,
 ) !default;
 
 $theme-colors: (
@@ -39,10 +41,29 @@ $theme-colors: (
   "danger": #d90429,
   "light": #d9d9d9,
   "dark": #333533
-); 
+)!default; 
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+) !default;
 
 
+.btn-link{
+  color: primary;
+  &:hover{
+    color: secondary;
+  }
+}
 
+$link-color:$brown!default;
+$link-decoration: underline $brown;
 
 
 

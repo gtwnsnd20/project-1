@@ -64,6 +64,15 @@
 }
 
 
+body{
+  font-family: var(--basicfont);
+}
+
+.btn:hover{
+  color: var(--navy);
+}
+
+
 /* FOOTER */
 footer {
   background-color: var(--brown);
@@ -75,6 +84,11 @@ footer {
   height: auto;
 }
 
+/* link{
+  color: var(--brown);
+} */
+
+
 .navbar {
   background-color: transparent !important;
   display: flex;
@@ -82,6 +96,7 @@ footer {
   flex-wrap: wrap;
   justify-content: space-between !important;
   box-shadow: none;
+  color: var(--brown);
 }
 
 .navbar .navbar-brand {
@@ -92,6 +107,24 @@ footer {
 
 .navbar .navbar-brand img{
   width: 30px;
+}
+
+.brandname{
+  color: var(--brown);
+}
+
+.navbar-brand a{
+  color: var(--brown);
+}
+.navbar-brand a:hover{
+  color: var(--brown);
+}
+
+.linktext{
+  color: var(--blue);
+}
+.linktext:hover{
+  color: var(--bluegrey);
 }
 
 .navbar-brand span{

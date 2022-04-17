@@ -25,7 +25,7 @@ function Navbar() {
           <Container className="navbar-brand d-flex align-items-center order-lg-0">
             <img src={logo} alt='' />
             <a href="http://localhost:3000">
-              <span className="ms-2">ReactIT</span>
+              <span className="ms-2 brandname">ReactIT</span>
             </a>
           </Container>
         </div>
