@@ -4,7 +4,7 @@ const pool = require('../api/database');
 const router = express.Router();
 
 router.delete('/',(req,res) =>{
-    let threadId = req.body.threadId;
+    let threadId = req.query.thread_id;
     pool.query('DELETE FROM thread WHERE thread_id = $1',[threadId],(error,result)=>{
         if(error){
             console.log(error)

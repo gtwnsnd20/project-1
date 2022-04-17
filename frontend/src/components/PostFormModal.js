@@ -3,7 +3,8 @@ import { Modal, Form, Button } from 'react-bootstrap';
 import axios from 'axios';
 import getCookie from "./Utils/getCookie";
 axios.defaults.withCredentials = true;
-function PostForm(props) {
+
+function PostFormModal(props) {
 
   // state + functions for showing/hiding form
   const [show, setShow] = useState(false);
@@ -19,14 +20,12 @@ function PostForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setErrorMessage({});
     
     //Get cookie from Document
     const authCookie = getCookie();
+
     let user_id = authCookie.userid;
-
     var { content } = document.forms[0];
-
     const params = {
       thread_id:props.thread_id,
       user_id:user_id,
@@ -52,40 +51,36 @@ function PostForm(props) {
     <div className='error'>{errorMessage.message}</div>
   );
 
-  const renderPostForm = (
-    <Modal show={show} onHide={handleClose}>
-      <Modal.Header closeButton>
-        <Modal.Title>Create New Post</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        <Form>
-          <Form.Group className='mb-3' controlId='postContent'>
-            <Form.Label>Content:</Form.Label>
-            <Form.Control as="textarea" rows={3} name="content" />
-          </Form.Group>
-          {renderErrorMessage('length')}
-        </Form>
-      </Modal.Body>
-      <Modal.Footer>
-        <Button variant='secondary' onClick={handleClose}>
-          Close
-        </Button>
-        <Button variant='primary' type="submit" onClick={handleSubmit}>
-          Submit Post
-        </Button>
-      </Modal.Footer>
-    </Modal>
-  );
-
   return (
     <div>
       <Button variant='primary' onClick={handleShow}>
         Create New Post
       </Button>
 
-    {renderPostForm}
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Create New Post</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <Form>
+            <Form.Group className='mb-3' controlId='postContent'>
+              <Form.Label>Content:</Form.Label>
+              <Form.Control as="textarea" rows={3} name="content" />
+            </Form.Group>
+          </Form>
+          {renderErrorMessage('length')}
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant='secondary' onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant='primary' type="submit" onClick={handleSubmit}>
+            Submit Post
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }
 
-export default PostForm;
+export default PostFormModal;
