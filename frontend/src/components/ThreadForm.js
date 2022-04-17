@@ -17,9 +17,9 @@ function ThreadForm(props) {
   
   const [catId, setCatId] = useState();
 
-  const [catError, setCatError] = useState({});
-  const [titleError, setTitleError] = useState({});
-  const [descError, setDescError] = useState({});
+  const [catError, setCatError] = useState({active:false});
+  const [titleError, setTitleError] = useState({active:false});
+  const [descError, setDescError] = useState({active:false});
 
   
   const errors = {
@@ -30,9 +30,9 @@ function ThreadForm(props) {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setCatError({});
-    setTitleError({});
-    setDescError({});
+    setCatError({active:false});
+    setTitleError({active:false});
+    setDescError({active:false});
 
     const authCookie = getCookie();
     let user_id = authCookie.userid;
@@ -47,16 +47,17 @@ function ThreadForm(props) {
     }
 
     if(isNaN(catId)){//Check if category selected
-      setCatError({name: 'category', message: errors.category});
+      setCatError({name: 'category', message: errors.category, active:true});
     }
     if(params.subject === undefined || params.subject.length < 3){//Check if title is long enough
-      setTitleError({name: 'title', message: errors.title});
+      setTitleError({name: 'title', message: errors.title, active:true});
     }
     if(params.thread_description === undefined || params.thread_description.length < 3){//Check if thread is long enough
-      setDescError({name: 'description', message: errors.description});
+      setDescError({name: 'description', message: errors.description, active:true});
     }
 
-    if( catError === {} && titleError === {} && descError === {} ){
+    if( catError.active === false && titleError.active === false && descError.active === false ){
+      console.log('it passed');
       axios.post('http://localhost:3001/add-thread',params).then((_res)=>{
         window.location.reload(false); // Reload page once thread is added.
       }).catch((error)=>{
