@@ -1,6 +1,6 @@
 import React from "react";
 import { Nav, NavItem, NavLink, Container, Button } from 'react-bootstrap';
-import { HouseHeartFill, EnvelopePaperHeartFill, BellFill } from 'react-bootstrap-icons';
+import { HouseHeartFill } from 'react-bootstrap-icons';
 import logo from "./Assets/Images/chicken.png";
 import MyAvatar from "./Assets/Avatar";
 import getCookie from "./Utils/getCookie";

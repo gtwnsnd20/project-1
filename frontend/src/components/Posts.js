@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { Button } from 'react-bootstrap';
 import { Card } from 'react-bootstrap';
 import axios from "axios"
-import Footer from "./Footer"
 import PostFormModal from './PostFormModal';
 import getCookie from './Utils/getCookie';
 

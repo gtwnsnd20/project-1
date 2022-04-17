@@ -1,6 +1,6 @@
 import React from 'react';
 import '../App.scss';
-import '../style.scss';
+import '../main.scss';
 import Login from './login';
 import Register from './register';
 
