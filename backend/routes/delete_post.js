@@ -4,7 +4,7 @@ const pool = require('../api/database');
 const router = express.Router();
 
 router.delete('/', (req,res) => {
-     let postid = req.body.postid;
+     let postid = req.query.post_id;
      console.log("Attempting to delete post with ID:"+postid)
     pool.query('DELETE FROM post WHERE post_id=$1', [postid], (error,results) => {
         if(error){
