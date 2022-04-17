@@ -6,9 +6,8 @@ import './main.css';
 import Home from './components/Pages/Home'
 import LoginPage from './components/Pages/LoginPage';
 import PostsPage from './components/Pages/PostsPage';
-import AdminMenu from './components/Pages/AdminMenu';
+import AdminMenu from './components/AdminMenu';
 import Logout from './components/Logout';
-import UserProfilePage from './components/Pages/UserProfilePage';
 
 function App() {
   return (
@@ -18,8 +17,7 @@ function App() {
         <Route path='/posts'  element={<PostsPage />}/>
         <Route path='/login'  element={<LoginPage />}/>
         <Route path='/logout' element={<Logout/>}/>
-        <Route path='/admin'  element={<AdminMenu />}/>
-        <Route path='/userprofile'  element={<UserProfilePage />}/>
+        <Route path='/admin'  element={<AdminMenu />}/> 
       </Routes>
     </BrowserRouter>
   );
