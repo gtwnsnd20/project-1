@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
-import { Card, Tab, TabContent, Tabs, } from 'react-bootstrap';
-import { ThreeDots } from "react-bootstrap-icons";
-import { Link } from 'react-router-dom';
+import { Tab, Tabs } from 'react-bootstrap';
 import axios from "axios";
-import { propTypes } from "react-bootstrap/esm/Image";
 import TabForums from "../components/TabForums";
 import ThreadForm from "./ThreadForm";
 import getCookie from "./Utils/getCookie";

@@ -2,10 +2,8 @@ import React, { useEffect, useState } from "react";
 import { ButtonToolbar,Button, Card, Table, Form, Row, Col, InputGroup } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus, faSearch } from "@fortawesome/free-solid-svg-icons";
-import MyAvatar from "./Assets/Avatar";
 import axios from "axios";
 import '../input.scss';
-import { Windows } from "react-bootstrap-icons";
 
 
 
@@ -32,7 +30,7 @@ function UserTable() {
   const [users, setUsers] = useState([]);
   //On load, get threads
   useEffect(()=>{
-    if(isRun != true){
+    if(isRun !== true){
       const BASE_URL = "http://localhost:3001/get-users";
       axios.get(BASE_URL).then((res)=>{
       setUsers(res.data);

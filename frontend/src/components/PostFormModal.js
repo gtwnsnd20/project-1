@@ -1,11 +1,10 @@
 import React, {useState} from 'react';
 import { Modal, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 import getCookie from "./Utils/getCookie";
 axios.defaults.withCredentials = true;
 
-//Store username and userid from cookie
+//Store username and userId from cookie
 
 
 //Actual Component
@@ -22,10 +21,11 @@ function PostFormModal(props) {
   const handleSubmit = (event) => {
     //Get cookie from Document
     const authCookie = getCookie();
-    let username= authCookie.username;
-    let user_id = authCookie.userid;
+    let username = authCookie.username;
+    let user_id = authCookie.userId;
     setContentError(false);
 
+    console.log(username)
     console.log(user_id)
     
     console.log(`User_ID=${user_id}`)
@@ -34,7 +34,7 @@ function PostFormModal(props) {
     console.log(`The variable content=${content.value}`)
     const params = {thread_id:props.thread_id,user_id:user_id,content:content.value}//Parameters for axios call
     
-    if(params.content == undefined || params.content == ''){
+    if(params.content === undefined || params.content === ''){
       setContentError(true);
     } else if(params.content.length < 3){
       setContentError(true);
