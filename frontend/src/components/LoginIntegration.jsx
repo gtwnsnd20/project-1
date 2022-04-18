@@ -44,7 +44,7 @@ class LoginIntegration extends React.Component {
     const current = loginAnimation ? 'Register' : 'Login';
     const currentActive = loginAnimation ? 'login' : 'register';
     return (
-
+      <div className = "login-container">
         <div className="login">
           <div className="container" ref={(ref) => (this.container = ref)}>
             {loginAnimation && (
@@ -61,7 +61,7 @@ class LoginIntegration extends React.Component {
             onClick={this.changeState.bind(this)}
           />
         </div>
-
+      </div>
     );
   }
 }
