@@ -84,19 +84,15 @@ footer {
   height: auto;
 }
 
-/* link{
-  color: var(--brown);
-} */
-
-
 .navbar {
   background-color: transparent !important;
   display: flex;
   position: absolute;
   flex-wrap: wrap;
   justify-content: space-between !important;
-  box-shadow: none;
   color: var(--brown);
+    -webkit-box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 3px 9px 3px rgba(0, 0, 0, 0.1);
 }
 
 .navbar .navbar-brand {
