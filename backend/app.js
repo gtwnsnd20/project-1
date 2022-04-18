@@ -41,6 +41,8 @@ const deleteUserRoute = require('./routes/delete_user');
 const addCategoryRoute = require('./routes/add_category');
 const getUsersRoute = require('./routes/get_users');
 const searchUsersRoute = require('./routes/search_users');
+const searchThreadsRoute = require('./routes/search_threads');
+
 
 //Routes that can be accessed by anyone
 app.use('/login', loginRoute);
@@ -49,6 +51,7 @@ app.use('/logout', logoutRoute);
 app.use('/get-categories', getCategoriesRoute);
 app.use('/get-threads', getThreadsRoute);
 app.use('/get-posts', getPostsRoute);
+app.use('/search-threads',searchThreadsRoute);
 
 //Routes that require being Logged in
 app.use('/add-thread/', isUser, addThreadRoute);//:cat_id

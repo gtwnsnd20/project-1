@@ -102,6 +102,10 @@ footer {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+.navbar-searchbar{
+  float:left;
+}
+
 .tabsgroup{
   letter-spacing: 2px;
   font-family: var(--basicfont);

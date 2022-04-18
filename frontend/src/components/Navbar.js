@@ -1,11 +1,18 @@
-import React from "react";
-import { Nav, NavItem, NavLink, Container, Button } from 'react-bootstrap';
-import { HouseHeartFill } from 'react-bootstrap-icons';
+import React, { useState } from "react";
+import axios from 'axios';
+import { Nav, NavItem, NavLink, Container, Button,InputGroup,Form } from 'react-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import { HouseHeartFill, Windows } from 'react-bootstrap-icons';
+import { useNavigate,Link } from 'react-router-dom';
 import logo from "./Assets/Images/chicken.png";
 import MyAvatar from "./Assets/Avatar";
 import getCookie from "./Utils/getCookie";
 
+
 function Navbar() {
+  const [terms, setTerms] = useState();
+  const [threads,setThreads] = useState();
   //call getCookie to get cookie info
   const cookieInfo = getCookie();
   let isAdmin = false;
@@ -18,6 +25,22 @@ function Navbar() {
     isAdmin = cookieInfo.is_admin;
   }
 
+  //Redirect handling
+  let navigate = useNavigate();
+  let routeChange = () =>{
+    let path = `/search-threads`;
+    console.log(threads)
+    navigate(path,{threads});
+  }
+
+  //Searchbar for Threads
+  function handleSubmit(event) {
+    event.preventDefault();
+    let params = `?terms=${terms}`
+          routeChange();
+          window.location.reload(false);
+  }
+
   return (
     <>
       <div className="navbar">
@@ -27,10 +50,25 @@ function Navbar() {
             <a href="http://localhost:3000">
               <span className="ms-2 brandname">ReactIT</span>
             </a>
+            <InputGroup className="navbar-searchbar">
+          <InputGroup.Text>
+            <FontAwesomeIcon icon={faSearch} className="navbar-searchicon"/>
+          </InputGroup.Text>
+          <Form.Control className="" type="text" placeholder="Search" name="terms" value={terms} onChange={e=>setTerms(e.target.value)}/>
+          
+                      <Link to='/search-threads'//Link to SearchThreads page
+                      state={{SearchTerms: terms}}><Button className="navbar-searchbarbutton">search</Button></Link>
+          
+
+        </InputGroup>
           </Container>
         </div>
         <div>
           <Nav className="mx-auto justify-content-end text-center" as="ul">
+            <li className="">
+
+            </li>
+
             <NavItem as="li">
               <NavLink href="/">
                 <HouseHeartFill color="#d90429" size={30} />

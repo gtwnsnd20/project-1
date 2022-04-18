@@ -4,6 +4,7 @@ import Home from './components/Pages/Home'
 import LoginPage from './components/Pages/LoginPage';
 import PostsPage from './components/Pages/PostsPage';
 import AdminMenu from './components/Pages/AdminMenu';
+import SearchThreads from './components/Pages/SearchThreadsPage'
 import Logout from './components/Logout';
 import axios from 'axios';
 import './main.scss';
@@ -19,6 +20,7 @@ function App() {
         <Route path='/login'  element={<LoginPage />}/>
         <Route path='/logout' element={<Logout/>}/>
         <Route path='/admin'  element={<AdminMenu />}/> 
+        <Route path='/search-threads'  element={<SearchThreads />}/>
       </Routes>
     </BrowserRouter>
   );

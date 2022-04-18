@@ -131,6 +131,20 @@ footer {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+/* .navbar-searchicon{
+  height: 90%;
+  width: 100%;
+} */
+
+.navbar-searchbar{
+  margin-left: 20px;
+  height: 80%;
+  width: 80%;
+}
+.navbar-searchbarbutton{
+  height:100%;
+}
+
 .navbar-username{
   height: 90%;
   width: 100%;
