@@ -51,13 +51,13 @@ function Navbar() {
               <span className="ms-2 brandname">ReactIT</span>
             </a>
             <InputGroup className="navbar-searchbar">
-          <InputGroup.Text>
-            <FontAwesomeIcon icon={faSearch} className="navbar-searchicon"/>
-          </InputGroup.Text>
-          <Form.Control className="" type="text" placeholder="Search" name="terms" value={terms} onChange={e=>setTerms(e.target.value)}/>
+          
+          <Form.Control className="" type="text" placeholder="Search threads..." name="terms" value={terms} onChange={e=>setTerms(e.target.value)}/>
           
                       <Link to='/search-threads'//Link to SearchThreads page
-                      state={{SearchTerms: terms}}><Button className="navbar-searchbarbutton">search</Button></Link>
+                      state={{SearchTerms: terms}}><InputGroup.Text>
+                      <FontAwesomeIcon icon={faSearch} className="navbar-searchicon"/>
+                    </InputGroup.Text></Link>
           
 
         </InputGroup>

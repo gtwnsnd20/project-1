@@ -170,6 +170,12 @@ footer {
   background-color: transparent;
 }
 
+.threadform{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .cardheader{
   font-family: var(--basicfont);
   font-size: 20px;
