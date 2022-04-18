@@ -43,7 +43,7 @@ const ForumTabsDemo = () => {
         {/* <TabContent></TabContent> */} 
 
       </Tabs>
-      {getCookie() != null ? <ThreadForm categories={categories}/> :<p style={styleObject}><a href="/login">Login to Create Thread</a></p> }
+      {getCookie() != null ? <ThreadForm categories={categories}/> :<p style={styleObject}><a className="linktext" href="/login">Login to Create Thread</a></p> }
     </div>
      
    )}
