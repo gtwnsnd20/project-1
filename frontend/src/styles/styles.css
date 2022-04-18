@@ -131,6 +131,14 @@ footer {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
 
+.navbar-username{
+  height: 90%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .tabsgroup{
   letter-spacing: 2px;
   font-family: var(--basicfont);
