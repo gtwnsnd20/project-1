@@ -76,7 +76,7 @@ footer {
 }
 
 .navbar {
-  background-color: transparent !important;
+  background-color: var(--skyblue);
   display: flex;
   position: absolute;
   flex-wrap: wrap;

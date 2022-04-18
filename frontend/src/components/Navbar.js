@@ -77,11 +77,11 @@ function Navbar() {
             {isLoggedIn && <NavItem as="li">
               <h4 className="navbar-username">{username}</h4>
             </NavItem>}
-            {isLoggedIn && <NavItem as="li">
+{/*             {isLoggedIn && <NavItem as="li">
               <NavLink href="/userprofile">
                 <MyAvatar />
               </NavLink>
-            </NavItem>}
+            </NavItem>} */}
             {isAdmin && <NavItem as="li">
               <NavLink href="/admin">
                 <Button>Admin Menu</Button>

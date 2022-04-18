@@ -85,7 +85,7 @@ footer {
 }
 
 .navbar {
-  background-color: transparent !important;
+  background-color: var(--skyblue);
   display: flex;
   position: absolute;
   flex-wrap: wrap;
@@ -130,11 +130,6 @@ footer {
   font-size: xx-large;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 }
-
-/* .navbar-searchicon{
-  height: 90%;
-  width: 100%;
-} */
 
 .navbar-searchbar{
   margin-left: 20px;
