@@ -20,15 +20,30 @@ function deleteUser(event){
   const BASE_URL = "http://localhost:3001/delete-user?"//URI
   let params = `user_id=${userid}`;
    axios.delete(BASE_URL+params).then((res)=>{
-    window.location.reload(false);
+    //window.location.reload(false);
   }) 
 }
+
+
 
 
 function UserTable() {
   const [isRun, setIsRun] = useState(false);
   const [users, setUsers] = useState([]);
+  const [terms, setTerms] = useState();
   //On load, get threads
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    
+    console.log(terms)
+    let params = `?terms=${terms}`
+    const Base_URL = "http://localhost:3001/search-users";
+    axios.get(Base_URL+params).then((res)=>{
+      setUsers(res.data);
+    })
+  }
+
   useEffect(()=>{
     if(isRun !== true){
       const BASE_URL = "http://localhost:3001/get-users";
@@ -43,6 +58,7 @@ function UserTable() {
 
   return (
     <>
+    
       <div className="justify-content-between text-center align-items-center py-4">
         <h4>Users List</h4>
       </div>
@@ -50,12 +66,16 @@ function UserTable() {
       <div className="search mb-4">
         <Row className="justify-content-between align-items-center">
           <Col xs={9} lg={4} className="d-flex">
-            <InputGroup className="me-2 me-lg-3">
-              <InputGroup.Text>
+            <Form  onSubmit={handleSubmit}>
+              <InputGroup className="me-2 me-lg-3">
+                <InputGroup.Text>
                   <FontAwesomeIcon icon={faSearch} />
-              </InputGroup.Text>
-              <Form.Control type="text" placeholder="Search" />
-            </InputGroup>
+                </InputGroup.Text>
+                <Form.Control type="text" placeholder="Search" name="terms" value={terms} onChange={e=>setTerms(e.target.value)}/>
+                  <Button onClick={handleSubmit}>Search</Button>
+                </InputGroup>
+            </Form>
+
           </Col>
         </Row>
       </div>

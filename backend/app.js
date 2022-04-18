@@ -40,7 +40,7 @@ const deleteThreadRoute = require('./routes/delete_thread');
 const deleteUserRoute = require('./routes/delete_user');
 const addCategoryRoute = require('./routes/add_category');
 const getUsersRoute = require('./routes/get_users');
-
+const searchUsersRoute = require('./routes/search_users');
 
 //Routes that can be accessed by anyone
 app.use('/login', loginRoute);
@@ -60,6 +60,7 @@ app.use('/delete-thread', isAdmin, deleteThreadRoute);
 app.use('/delete-user', isAdmin, deleteUserRoute);
 app.use('/add-category', isAdmin, addCategoryRoute);
 app.use('/get-users', isAdmin, getUsersRoute);
+app.use('/search-users',  searchUsersRoute);
 
 // listener
 app.listen(port, () => {
