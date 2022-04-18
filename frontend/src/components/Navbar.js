@@ -37,7 +37,7 @@ function Navbar() {
               </NavLink>
             </NavItem>
             {isLoggedIn && <NavItem as="li">
-              <h4>{username}</h4>
+              <h4 className="navbar-username">{username}</h4>
             </NavItem>}
             {isLoggedIn && <NavItem as="li">
               <NavLink href="/userprofile">
