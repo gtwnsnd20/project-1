@@ -1,5 +1,5 @@
 # React-It
-   - [Logo]()
+   - [Logo](https://github.com/gtwnsnd20/project-1/blob/c4ee325c3035f6ec1c37e70ee1deabf657353856/frontend/src/components/Assets/Images/chicken.png)
 
 ## Description
 
@@ -65,8 +65,8 @@ SOFTWARE.
 
 ## SQL-Inserts
 
-   - [db-schema](frontend\src\components\Assets\Images\db-schema.png)
-   - [SQL-Queries](frontend\src\components\Assets\sql-queries.sql)
+   - [db-schema](https://github.com/gtwnsnd20/project-1/blob/79b80de095c4270b6fcc505c241daee1b565aeef/frontend/src/components/Assets/Images/db-schema.png)
+   - [SQL-Queries](https://github.com/gtwnsnd20/project-1/blob/79b80de095c4270b6fcc505c241daee1b565aeef/frontend/src/components/Assets/sql-queries.sql)
 
 DROP TABLE IF EXISTS users CASCADE;
 DROP TABLE IF EXISTS thread CASCADE;
