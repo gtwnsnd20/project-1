@@ -5,7 +5,7 @@ const router = express.Router()
 router.get('/',(req,res)=>{
     let terms = req.query.terms;
     terms = "%" + terms + "%"//Add wildcards
-    pool.query('select user_id,username,email,role_name,register_date,last_login from users JOIN roles ON users.role_id = roles.role_id WHERE username LIKE $1 ORDER BY username;', [terms], (error,results)=>{
+    pool.query('select user_id,username,email,role_name,register_date,last_login from users JOIN roles ON users.role_id = roles.role_id WHERE LOWER(username) LIKE LOWER($1) ORDER BY username;', [terms], (error,results)=>{
         if (error) {
             console.log(`SELECT {...} FROM thread Query Error: ${error}`);
         }

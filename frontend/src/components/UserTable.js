@@ -20,7 +20,7 @@ function deleteUser(event){
   const BASE_URL = "http://localhost:3001/delete-user?"//URI
   let params = `user_id=${userid}`;
    axios.delete(BASE_URL+params).then((res)=>{
-    //window.location.reload(false);
+    window.location.reload(false);
   }) 
 }
 
