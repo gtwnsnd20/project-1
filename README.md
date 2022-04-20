@@ -15,7 +15,7 @@ prevent abuse and unwanted content.
    - [Usage](#usage)
    - [Credits](#credits)
    - [License](#license)
-   - [SQL-Inserts](#SQL-Inserts)
+   - [SQL-Inserts](#sql-inserts)
 
 ## Usage
 
@@ -26,7 +26,7 @@ prevent abuse and unwanted content.
     by clicking the "View Posts" link within a thread block.
 - Visitors can log in as a user or register a new user account
     by clicking "Login/Register" in the navbar.
-- Registering a new account requires a unique username, email and password.
+- Registering a new account requires a unique username, an email and a password.
 - On login the user is redirected to the previous page,
     and on registration the user is redirected to the homepage.
 - Users can view their username in the navbar, create new threads in categories,
