@@ -19,20 +19,29 @@ prevent abuse and unwanted content.
 
 ## Usage
 
-- When you first visit the website, you will be viewing the guest version of the
-    homepage on the home screen.
-- You will be able to travel about the website and view categories, topics, and
-    conversations as a visitor.
-- You can either log in if you're an existing user or create an account if you're
-    a new user.
-- You will be taken to the homepage after registering as a new user or logging in,
-    where you can now communicate with others.
-- You will be able to start new topics, add new posts, respond to other users, and
-    logout as a user.
+- Site visitors are first brought to the homepage
+    where they can view the forum categories and
+    each category's threads by clicking on that category's tab.
+- Visitors can search threads by name and content, and view the posts of a thread
+    by clicking the "View Posts" link within a thread block.
+- Visitors can log in as a user or register a new user account
+    by clicking "Login/Register" in the navbar.
+- Registering a new account requires a unique username, email and password.
+- On login the user is redirected to the previous page,
+    and on registration the user is redirected to the homepage.
+- Users can view their username in the navbar, create new threads in categories,
+    create new posts in threads, and log out.
+- User cookies will last for a day if they dont log out.
+- Admin users can delete threads, delete posts,
+    and reach the admin page from the navbar.
+- In the admin page admins can view all users, their emails, 
+    admin status and registration/last login datetimes,
+    can search users by name, and delete users.
+- When a user is deleted, all posts made by the user are deleted as well.
 
 ## Credits
 
-Collaborators and GitHub
+Collaborators
 
    - [Gino Townsend](https://github.com/gtwnsnd20)
    - [Hunter Risse](https://github.com/hrisse)
@@ -65,6 +74,6 @@ SOFTWARE.
 
 ## SQL-Inserts
 
-   - [db-schema](https://github.com/gtwnsnd20/project-1/blob/79b80de095c4270b6fcc505c241daee1b565aeef/frontend/src/components/Assets/Images/db-schema.png)
-   - [SQL-Queries](https://github.com/gtwnsnd20/project-1/blob/79b80de095c4270b6fcc505c241daee1b565aeef/frontend/src/components/Assets/sql-queries.sql)
+   - [db-schema](https://github.com/gtwnsnd20/project-1/blob/79b80de095c4270b6fcc505c241daee1b565aeef/docs/db-schema.png)
+   - [SQL-Queries](https://github.com/gtwnsnd20/project-1/blob/79b80de095c4270b6fcc505c241daee1b565aeef/docs/sql-queries.sql)
 
