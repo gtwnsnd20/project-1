@@ -75,5 +75,5 @@ SOFTWARE.
 ## SQL-Inserts
 
    - [db-schema](https://github.com/gtwnsnd20/project-1/blob/79b80de095c4270b6fcc505c241daee1b565aeef/docs/db-schema.png)
-   - [SQL-Queries](https://github.com/gtwnsnd20/project-1/blob/79b80de095c4270b6fcc505c241daee1b565aeef/docs/sql-queries.sql)
+   - [SQL-Queries]("frontend\src\components\Assets\sql-queries.sql")
 
